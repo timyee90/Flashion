@@ -1,30 +1,21 @@
 # project-greenfield
 
-Empty project.
+Setup Instructions:
 
-## Building and running on localhost
+## Install dependencies
 
-First install dependencies:
+- terminal command: "npm install"
 
-```sh
-npm install
-```
+## Compile Front-End Code
 
-To create a production build:
+- terminal command: "npm run build-dev"
 
-```sh
-npm run build-prod
-```
+## Start Server and open app in browser
 
-To create a development build:
-
-```sh
-npm run build-dev
-```
-
-## Running
-
-Open the file `dist/index.html` in your browser
+- Start Server
+  - terminal command: "npm run start-dev"
+- Open Application
+  - (AFTER COMPILING CODE AND STARTING SERVER) Search in Browser URL "localhost:3000"
 
 ## Credits
 
