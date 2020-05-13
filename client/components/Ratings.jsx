@@ -1,12 +1,12 @@
-import React from "react";
-import BarRatingGauge from "./BarRatingGauge.jsx";
+import React from 'react';
+import BarRatingGauge from './BarRatingGauge.jsx';
 
 const Ratings = (props) => {
-  const starRows = ["1", "2", "3", "4", "5"].map((rating) => {
+  const starRows = ['1', '2', '3', '4', '5'].map((rating) => {
     return (
       <tr>
         <td>
-          <a href={"/"}>{rating} stars</a>
+          <a href={'/'}>{rating} stars</a>
         </td>
         <td>{/*add bar showing percent distribution*/}</td>
       </tr>
@@ -21,8 +21,8 @@ const Ratings = (props) => {
       <table>
         <tbody>{starRows}</tbody>
       </table>
-      <BarRatingGauge category="size" />
-      <BarRatingGauge category="comfort" />
+      <BarRatingGauge category='size' />
+      <BarRatingGauge category='comfort' />
     </div>
   );
 };
