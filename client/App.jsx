@@ -1,10 +1,12 @@
 import React from "react";
+import ProductOverview from "./components/ProductOverview.jsx";
 
-class App extends React.Component {
-  render() {
-    const { name } = this.props;
-    return <h1>Hello {name}</h1>;
-  }
-}
+const App = () => {
+  return (
+    <div>
+      <ProductOverview />
+    </div>
+  );
+};
 
 export default App;
