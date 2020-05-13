@@ -11,8 +11,8 @@ const App = () => {
       <ProductOverview />
       <RelatedProductsListEntry />
       <OutfitListEntry />
-      {/* <QASection />
-      <Ratings_Reviews /> */}
+      <QASection />
+      <Ratings_Reviews />
     </div>
   );
 };

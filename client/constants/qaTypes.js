@@ -1,2 +1,3 @@
 export const SEARCH_QUERY = 'SEARCH_QUERY';
 export const RENDER_MORE_QUESTIONS = 'RENDER_MORE_QUESTIONS';
+export const GET_QA_DATA = 'GET_QA_DATA';
