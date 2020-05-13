@@ -1,14 +1,28 @@
 import {
   DISPLAY_NEXT_IMAGE,
+  DISPLAY_PREVIOUS_IMAGE,
+  DISPLAY_CHOSEN_IMAGE,
   CHANGE_STYLE,
   SELECT_SIZE,
   ADD_TO_BAG,
   ADD_TO_FAVORITES,
 } from "../constants/ProductOverviewTypes.js";
 
-export const displayNextImage = (image_thumbnail) => {
+export const displayNextImage = () => {
   return {
     type: DISPLAY_NEXT_IMAGE,
+  };
+};
+
+export const displayPreviousImage = () => {
+  return {
+    type: DISPLAY_PREVIOUS_IMAGE,
+  };
+};
+
+export const displayChosenImage = (image_thumbnail) => {
+  return {
+    type: DISPLAY_CHOSEN_IMAGE,
     payload: image_thumbnail,
   };
 };
