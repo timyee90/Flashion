@@ -1,6 +1,6 @@
 import React from 'react';
 import ImageGallery from './ImageGallery.jsx';
-// import MainNameAndPrice from "./MainNameAndPrice.jsx";
+import MainNameAndPrice from './MainNameAndPrice.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import SizeQuantityForm from './SizeQuantityForm.jsx';
 import CartAndOutfit from './CartAndOutfit.jsx';
@@ -14,7 +14,9 @@ const ProductOverview = (props) => {
           <ImageGallery />
         </div>
         <div className='InfoStyleEvents'>
-          <div className='NamePrice'>{/* <MainNameAndPrice /> */}</div>
+          <div className='NamePrice'>
+            <MainNameAndPrice />
+          </div>
           <div className='StyleSelector'>
             <StyleSelector />
           </div>
