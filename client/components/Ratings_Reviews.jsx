@@ -1,11 +1,12 @@
 import React from 'react';
-import Ratings from './';
+import Ratings from './Ratings.jsx';
+import ReviewsSection from './ReviewsSection.jsx';
 
 const Ratings_Reviews = (props) => {
   return (
     <div>
       <Ratings />
-      <Reviews />
+      <ReviewsSection />
     </div>
   );
 };
