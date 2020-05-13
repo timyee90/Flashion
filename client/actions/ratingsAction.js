@@ -11,5 +11,7 @@ export const changeRatingFilter = (rating) => {
 };
 
 export const getAvgRating = () => {
-  return (dispatch) => {};
+  return (dispatch) => {
+    //insert reviews endpoint query
+  };
 };

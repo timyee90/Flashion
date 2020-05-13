@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import StarRating from './StarRating.jsx';
+import Helpful from './Helpful.jsx';
 
 const Review = ({ review }) => {
   //the following below will need to be revised for styling
@@ -19,12 +20,7 @@ const Review = ({ review }) => {
       <div>{recommended}</div>
       <div>{response}</div>
       <div>
-        <p>
-          Helpful?{' '}
-          <a href={'placeholder' /*click handler for helpful count*/}> Yes </a>
-          {review.helpfulness} |{' '}
-          <a href={'placeholder' /*click handler for report */}>Report</a>
-        </p>
+        <Helpful count={review.helpfulness} type={'review'} />
       </div>
     </div>
   );

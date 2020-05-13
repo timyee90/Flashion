@@ -1,6 +1,7 @@
 import {
   SHOW_MORE_REVIEWS,
   CHANGE_SORTING_CRITERIA,
+  GET_REVIEWS_DATA,
 } from '../constants/ratingsReviewsTypes';
 
 //needs to be async func
@@ -20,6 +21,6 @@ export const changeSortCriteriaReview = (criteria) => {
 
 export const getReviewData = () => {
   return (dispatch) => {
-    //insert getrevies util func
+    //insert get reviews util func
   };
 };
