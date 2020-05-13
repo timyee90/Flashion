@@ -16,6 +16,8 @@ const qaReducer = (state = initState, action) => {
         ...state,
         qaEntries: action.payload,
       };
+    default:
+      return state;
   }
 };
 

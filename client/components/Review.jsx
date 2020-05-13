@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import StarRating from './StarRating.jsx';
+import Helpful from './Helpful.jsx';
 
 const Review = ({ review }) => {
   //the following below will need to be revised for styling
@@ -10,7 +11,7 @@ const Review = ({ review }) => {
     response & (response.length > 0) ? <div>{review.response}</div> : '';
   return (
     <div id={review.review_id}>
-      <StarRating rating={/* review.rating or something */} />
+      <StarRating rating={'placeholder' /* review.rating or something */} />
       <h3>{review.summary}</h3>
       <p>
         {review.reviewer_name} {moment(review.date).format('MMMM DD, YYYY')}
@@ -19,11 +20,7 @@ const Review = ({ review }) => {
       <div>{recommended}</div>
       <div>{response}</div>
       <div>
-        <p>
-          Helpful? <a href={/*click handler for helpful count*/}> Yes </a>
-          {review.helpfulness} |{' '}
-          <a href={/*click handler for report */}>Report</a>
-        </p>
+        <Helpful count={review.helpfulness} type={'review'} />
       </div>
     </div>
   );
