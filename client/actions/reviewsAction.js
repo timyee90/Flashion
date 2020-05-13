@@ -17,3 +17,9 @@ export const changeSortCriteriaReview = (criteria) => {
     payload: criteria,
   };
 };
+
+export const getReviewData = () => {
+  return (dispatch) => {
+    //insert getrevies util func
+  };
+};

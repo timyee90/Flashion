@@ -8,7 +8,7 @@ const QuestionSearch = (props) => {
         <input type='text' value={search} onChange={changeSearchTerms}></input>
         <input
           type='button'
-          onClick={/*props.querySearch */}
+          onClick={'placeholder' /*props.querySearch */}
           placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...'
         ></input>
       </form>

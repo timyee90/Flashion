@@ -10,7 +10,7 @@ const Review = ({ review }) => {
     response & (response.length > 0) ? <div>{review.response}</div> : '';
   return (
     <div id={review.review_id}>
-      <StarRating rating={/* review.rating or something */} />
+      <StarRating rating={'placeholder' /* review.rating or something */} />
       <h3>{review.summary}</h3>
       <p>
         {review.reviewer_name} {moment(review.date).format('MMMM DD, YYYY')}
@@ -20,9 +20,10 @@ const Review = ({ review }) => {
       <div>{response}</div>
       <div>
         <p>
-          Helpful? <a href={/*click handler for helpful count*/}> Yes </a>
+          Helpful?{' '}
+          <a href={'placeholder' /*click handler for helpful count*/}> Yes </a>
           {review.helpfulness} |{' '}
-          <a href={/*click handler for report */}>Report</a>
+          <a href={'placeholder' /*click handler for report */}>Report</a>
         </p>
       </div>
     </div>
