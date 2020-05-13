@@ -9,7 +9,7 @@
   "scripts": {
     "test": "jest",
     "clean": "rm dist/bundle.js",
-    "build-dev": "webpack -d --mode development",
+    "build-dev": "webpack -w -d --mode development",
     "build-prod": "webpack -p --mode production",
     "start-dev": "nodemon server/server.js"
   },
