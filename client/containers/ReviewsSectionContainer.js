@@ -5,6 +5,7 @@ import { getReviewData } from '../actions/reviewsAction.js';
 const mapStateToProps = (state) => {
   return {
     reviews: state.reviews.reviews,
+    product_id: state.app.product_id,
   };
 };
 

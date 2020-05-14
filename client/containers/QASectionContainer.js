@@ -12,6 +12,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
+    product_id: state.app.product_id,
     entries: state.qa.qaEntries,
   };
 };
