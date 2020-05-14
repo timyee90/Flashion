@@ -3,12 +3,13 @@ import {
   CHANGE_SORTING_CRITERIA,
   GET_REVIEWS_DATA,
 } from '../constants/ratingsReviewsTypes';
+import { getReviews } from '../../utils/queries';
 
 //needs to be async func
 export const renderMoreReviews = (currentlyShownNumberOfReviews) => {
   return {
     type: SHOW_MORE_REVIEWS,
-    payload: currentlyShownNumberOfReviews,
+    payload: currentlyShownNumberOfReviews + 2,
   };
 };
 
@@ -19,8 +20,13 @@ export const changeSortCriteriaReview = (criteria) => {
   };
 };
 
-export const getReviewData = () => {
+export const getReviewData = (id) => {
   return (dispatch) => {
-    //insert get reviews util func
+    getReviews(id).then((data) => {
+      dispatch({
+        type: GET_REVIEWS_DATA,
+        payload: data,
+      });
+    });
   };
 };

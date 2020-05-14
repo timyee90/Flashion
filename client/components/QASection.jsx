@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import QuestionSearch from './QuestionSearch.jsx';
 import QAEntry from './QAEntry.jsx';
 import QAButtons from './QAButtons.jsx';

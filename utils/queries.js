@@ -155,10 +155,11 @@ export const reportAnswer = (answer_id) => {
 
 // Should return object with product, page-number, review-count, and array of review objects
 export const getReviews = (product_id) => {
+  console.log('yo');
   return axios
     .get(`${baseUrl}/reviews/${product_id}/list/`)
     .then(({ data }) => {
-      return data;
+      return data.results;
     })
     .catch(handleError);
 };

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import RelatedProductsListEntry from './components/RelatedProductsListEntry.jsx';
 import OutfitListEntry from './components/OutfitListEntry.jsx';
 import ProductOverview from './components/ProductOverview.jsx';
-import QASection from './components/QASection.jsx';
+import QASection from './containers/QASectionContainer.js';
 import Ratings_Reviews from './components/Ratings_Reviews.jsx';
 
 const App = () => {
@@ -11,8 +11,8 @@ const App = () => {
       <ProductOverview />
       <RelatedProductsListEntry />
       <OutfitListEntry />
-      {/* <QASection />
-      <Ratings_Reviews /> */}
+      <QASection />
+      <Ratings_Reviews />
     </div>
   );
 };

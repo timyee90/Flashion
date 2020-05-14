@@ -4,7 +4,7 @@ import BarRatingGauge from './BarRatingGauge.jsx';
 const Ratings = (props) => {
   const starRows = ['1', '2', '3', '4', '5'].map((rating) => {
     return (
-      <tr>
+      <tr key={rating}>
         <td>
           <a href={'/'}>{rating} stars</a>
         </td>
