@@ -6,7 +6,20 @@ import {
   SELECT_SIZE,
   ADD_TO_BAG,
   ADD_TO_FAVORITES,
-} from "../constants/ProductOverviewTypes.js";
+  GET_PRODUCT_DATA,
+} from '../constants/ProductOverviewTypes.js';
+import { getProductInfo } from '../../utils/queries.js';
+
+export const getProductData = (product_id) => {
+  return (dispatch) => {
+    getProductInfo(product_id).then((productData) => {
+      dispatch({
+        type: GET_PRODUCT_DATA,
+        payload: productData,
+      });
+    });
+  };
+};
 
 export const displayNextImage = () => {
   return {

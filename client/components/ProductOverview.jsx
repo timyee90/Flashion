@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ImageGallery from './ImageGallery.jsx';
 import MainNameAndPrice from './MainNameAndPrice.jsx';
 import StyleSelector from './StyleSelector.jsx';
@@ -7,6 +7,10 @@ import CartAndOutfit from './CartAndOutfit.jsx';
 import ProductDescription from './ProductDescription.jsx';
 
 const ProductOverview = (props) => {
+  useEffect(() => {
+    props.getProductData(23);
+  }, []);
+
   return (
     <div className='MainProduct'>
       <div className='TopInfo'>
