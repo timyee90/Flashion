@@ -1,4 +1,8 @@
-import { RENDER_MORE_QUESTIONS, SEARCH_QUERY } from '../constants/qaTypes.js';
+import {
+  RENDER_MORE_QUESTIONS,
+  SEARCH_QUERY,
+  GET_QA_DATA,
+} from '../constants/qaTypes.js';
 
 const initState = {
   qaEntries: [],
@@ -12,6 +16,11 @@ const qaReducer = (state = initState, action) => {
         qaEntries: state.qaEntries.push(...action.payload),
       };
     case SEARCH_QUERY:
+      return {
+        ...state,
+        qaEntries: action.payload,
+      };
+    case GET_QA_DATA:
       return {
         ...state,
         qaEntries: action.payload,
