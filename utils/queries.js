@@ -76,7 +76,7 @@ export const getQuestions = (product_id) => {
   return axios
     .get(`${baseUrl}/qa/${product_id}/`)
     .then(({ data }) => {
-      return data;
+      return data.results;
     })
     .catch(handleError);
 };

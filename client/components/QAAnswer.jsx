@@ -10,8 +10,8 @@ const Answer = ({ info }) => {
       {photos}
       <p>
         by {info.answerer_name}, {moment(info.date).format('MMMM DD, YYYY')} |{' '}
-        <Helpful count={info.helpfulness} type={'answer'} />
       </p>
+      <Helpful count={info.helpfulness} type={'answer'} />
     </div>
   );
 };
