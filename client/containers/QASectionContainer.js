@@ -3,7 +3,7 @@ import QASection from '../components/QASection.jsx';
 
 const mapStateToProps = (state) => {
   return {
-    entries: state.qa.entries,
+    entries: state.qa.qaEntries,
   };
 };
 

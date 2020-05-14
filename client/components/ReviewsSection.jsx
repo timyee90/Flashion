@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Review from './Review.jsx';
 
-const Reviews = (props) => {
-  const reviews = props.results.map((review) => {
-    return <Review key={review.id} review={review} />;
+const ReviewsSection = (props) => {
+  useEffect(() => {
+    props.getReviewData(26);
+  }, []);
+
+  const reviews = props.reviews.map((review, index) => {
+    return <Review key={index} review={review} />;
   });
   return (
     <div>
@@ -12,4 +16,4 @@ const Reviews = (props) => {
   );
 };
 
-export default Reviews;
+export default ReviewsSection;

@@ -6,7 +6,11 @@ import {
 
 const initState = {
   sortingCriteria: '',
-  reviews: [],
+  reviews: [
+    {
+      recommend: [],
+    },
+  ],
   numOfShownReviews: 0,
 };
 

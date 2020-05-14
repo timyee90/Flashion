@@ -1,10 +1,19 @@
 import { connect } from 'react-redux';
-import ReviewsSection from '../components/Review.jsx';
+import ReviewsSection from '../components/ReviewsSection.jsx';
+import { getReviewData } from '../actions/reviewsAction.js';
 
 const mapStateToProps = (state) => {
   return {
-    reviews: state.reviews.entries,
+    reviews: state.reviews.reviews,
   };
 };
 
-export default connect(mapStateToProps)(ReviewsSection);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getReviewData: (arg) => {
+      dispatch(getReviewData(arg));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewsSection);
