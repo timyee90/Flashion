@@ -3,8 +3,8 @@ import Review from './Review.jsx';
 
 const ReviewsSection = (props) => {
   useEffect(() => {
-    props.getReviewData(26);
-  }, []);
+    props.getReviewData(props.product_id);
+  }, [props.product_id]);
 
   const reviews = props.reviews.map((review, index) => {
     return <Review key={index} review={review} />;

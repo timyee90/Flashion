@@ -4,8 +4,14 @@ import OutfitListEntry from './components/OutfitListEntry.jsx';
 import ProductOverview from './components/ProductOverview.jsx';
 import QASection from './containers/QASectionContainer.js';
 import Ratings_Reviews from './components/Ratings_Reviews.jsx';
+import { useParams } from 'react-router-dom';
 
-const App = () => {
+const App = (props) => {
+  const params = useParams();
+  useEffect(() => {
+    console.log(params.id);
+    props.setProductID(params.id);
+  });
   return (
     <div>
       <ProductOverview />

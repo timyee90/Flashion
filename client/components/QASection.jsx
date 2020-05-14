@@ -11,8 +11,8 @@ const QASection = (props) => {
   };
 
   useEffect(() => {
-    props.getQAData(23);
-  }, []);
+    props.getQAData(props.product_id);
+  }, [props.product_id]);
 
   const allQAEntries = props.entries.map((qa, index) => {
     return <QAEntry key={index} qaInfo={qa} />;

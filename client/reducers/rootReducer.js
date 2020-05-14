@@ -2,9 +2,10 @@ import { combineReducers } from 'redux';
 import ratingsReducer from './ratingsReducer.js';
 import reviewsReducer from './reviewsReducer.js';
 import qaReducer from './qaReducer.js';
+import appReducer from './appReducer.js';
 
 export default combineReducers({
-  /* insert reducers */
+  app: appReducer,
   ratings: ratingsReducer,
   reviews: reviewsReducer,
   qa: qaReducer,
