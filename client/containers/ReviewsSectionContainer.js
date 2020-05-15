@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import ReviewsSection from '../components/ReviewsSection.jsx';
 import { getReviewData } from '../actions/reviewsAction.js';
+import { getAvgRating } from '../actions/ratingsAction.js';
 
 const mapStateToProps = (state) => {
   return {
@@ -13,6 +14,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getReviewData: (arg) => {
       dispatch(getReviewData(arg));
+    },
+    getAvgRating: (arg) => {
+      dispatch(getAverageRating(arg));
     },
   };
 };

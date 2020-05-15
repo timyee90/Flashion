@@ -1,11 +1,11 @@
 import {
   CHANGE_RATING_FILTER,
   GET_AVG_RATING,
+  GET_RECOMMENDED_PERCENTAGE,
 } from '../constants/ratingsReviewsTypes.js';
 
 const initState = {
   ratingFilter: [],
-  avg_rating: 0,
 };
 
 const ratingsReducer = (state = initState, action) => {
@@ -15,11 +15,7 @@ const ratingsReducer = (state = initState, action) => {
         ...state,
         ratingFilter: action.payload,
       };
-    case GET_AVG_RATING:
-      return {
-        ...state,
-        avg_rating: action.payload,
-      };
+
     default:
       return state;
   }

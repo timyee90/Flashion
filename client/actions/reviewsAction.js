@@ -2,7 +2,11 @@ import {
   SHOW_MORE_REVIEWS,
   CHANGE_SORTING_CRITERIA,
   GET_REVIEWS_DATA,
+  GET_AVG_RATING,
+  GET_RECOMMENDED_PERCENTAGE,
 } from '../constants/ratingsReviewsTypes';
+import { computeAverageRating } from '../../utils/computeRatingAverage.js';
+import { computeRecommendedPercentage } from '../../utils/computations.js';
 import { getReviews } from '../../utils/queries';
 
 //needs to be async func
@@ -26,6 +30,15 @@ export const getReviewData = (id) => {
       dispatch({
         type: GET_REVIEWS_DATA,
         payload: data,
+      });
+      console.log('avg is: ', computeAverageRating(data));
+      dispatch({
+        type: GET_AVG_RATING,
+        payload: computeAverageRating(data),
+      });
+      dispatch({
+        type: GET_RECOMMENDED_PERCENTAGE,
+        payload: computeRecommendedPercentage(data),
       });
     });
   };

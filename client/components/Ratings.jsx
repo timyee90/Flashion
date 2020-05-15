@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import BarRatingGauge from './BarRatingGauge.jsx';
 
 const Ratings = (props) => {
@@ -15,9 +15,9 @@ const Ratings = (props) => {
   return (
     <div>
       <div>Ratings and Review</div>
-      <h1>{/*Average rating */}</h1>
+      <h1>{props.averageRating}</h1>
       <div>{/*star rating here */}</div>
-      <p>{/*enter percent */} of reviews recommend this product</p>
+      <p>{props.recommendedPercentage}% of reviews recommend this product</p>
       <table>
         <tbody>{starRows}</tbody>
       </table>
