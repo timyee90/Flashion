@@ -1,22 +1,14 @@
 import {
   CHANGE_RATING_FILTER,
   GET_AVG_RATING,
+  GET_RECOMMENDED_PERCENTAGE,
 } from '../constants/ratingsReviewsTypes.js';
-import computeRatingAverage, {
-  computeAverageRating,
-} from '../../utils/computeRatingAverage.js';
-import { getReviews } from '../../utils/queries.js';
+import { computeAverageRating } from '../../utils/computeRatingAverage.js';
+import { computeRecommendedPercentage } from '../../utils/computations.js';
 
 export const changeRatingFilter = (rating) => {
   return {
     type: CHANGE_RATING_FILTER,
     payload: rating,
-  };
-};
-
-export const getAvgRating = (reviews) => {
-  return {
-    type: GET_AVG_RATING,
-    payload: computeAverageRating(reviews),
   };
 };

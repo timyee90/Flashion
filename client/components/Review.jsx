@@ -10,7 +10,7 @@ const Review = ({ review }) => {
   const response = review.response ? <div>{review.response}</div> : '';
   return (
     <div>
-      <StarRating rating={'placeholder'} />
+      <StarRating rating={review.rating} />
       <h3>{review.summary}</h3>
       <p>
         {review.reviewer_name} {moment(review.date).format('MMMM DD, YYYY')}

@@ -1,15 +1,22 @@
-import React from "react";
-import { Provider } from "react-redux";
-import ReactDOM from "react-dom";
-import App from "./App";
-import "./styles.scss";
-import store from "./store.js";
+import React from 'react';
+import { Provider } from 'react-redux';
+import ReactDOM from 'react-dom';
+import App from './containers/AppContainer.js';
+import './styles.scss';
+import store from './store.js';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 
-var mountNode = document.getElementById("app");
+var mountNode = document.getElementById('app');
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App name="Jane" />
-  </Provider>,
+  <HashRouter>
+    <Switch>
+      <Route path='/product/:id'>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </Route>
+    </Switch>
+  </HashRouter>,
   mountNode
 );

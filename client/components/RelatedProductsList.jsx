@@ -3,8 +3,8 @@ import RelatedProductsListEntry from './RelatedProductsListEntry.jsx';
 
 const RelatedProductsList = (props) => {
   useEffect(() => {
-    props.getRelatedProductIds(26);
-  }, []);
+    props.getRelatedProductIds(props.product_id);
+  }, [props.product_id]);
 
   const relatedProductEntries = props.relatedProducts.relatedProducts.map(
     (relatedProduct) => {

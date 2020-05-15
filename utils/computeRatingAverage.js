@@ -1,7 +1,7 @@
-export const computeAverageRating = ({ results }) => {
+export const computeAverageRating = (results) => {
   return (
     results.reduce((a, b) => {
-      return a.rating + b.rating;
+      return a + b.rating;
     }, 0) / results.length || 0
   );
 };

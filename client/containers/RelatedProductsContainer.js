@@ -5,6 +5,7 @@ import { getRelatedProductIds } from '../actions/relatedProductActions.js';
 const mapStateToProps = (state) => {
   return {
     relatedProducts: state.relatedProducts,
+    product_id: state.app.product_id,
   };
 };
 
