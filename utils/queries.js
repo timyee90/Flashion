@@ -84,23 +84,20 @@ export const getRelatedProductMeta = (productId) => {
   });
 };
 
-// let final = data.map((item) => {
-//   return getProductStyles(item.id);
-// });
-// Promise.all(final).then((productStyles) => {
-//   // console.log(`PRODUCT STYLES: `, productStyles);
-//   return productStyles.map((product) => {
-//     try {
-//       console.log(`PRODUCT: `, product.results[0].photos);
-//     } catch (err) {
-//       console.log(`ERROR`, err);
-//     }
-//     return product.results[0];
-//   });
-//   // return productStyles;
-// });
-// // console.log(`STYLES: `, final);
-// console.log(`DATA`, data);
+// nested API call for related products' styles
+export const getProductStylesMeta = (productId) => {
+  let results = getRelatedProducts(productId).then((relatedProductArray) => {
+    return relatedProductArray.map((relatedProduct) => {
+      return getProductStyles(relatedProduct);
+    });
+  });
+
+  return results.then((promiseArray) => {
+    return Promise.all(promiseArray).then((data) => {
+      return data;
+    });
+  });
+};
 
 // <-------------------------------------------QA Queries------------------------------------------------>
 
