@@ -18,6 +18,7 @@ const mapStateToProps = (state) => {
   return {
     productInfo: state.productInfo.productInfo,
     product_id: state.app.product_id,
+    stylesInfo: state.productInfo.stylesInfo,
   };
 };
 

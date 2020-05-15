@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ImageGallery from './ImageGallery.jsx';
-import MainNameAndPrice from './MainNameAndPrice.jsx';
-import StyleSelector from './StyleSelector.jsx';
-import SizeQuantityForm from './SizeQuantityForm.jsx';
-import CartAndOutfit from './CartAndOutfit.jsx';
+import ProductCard from './ProductCard.jsx';
 import ProductDescription from './ProductDescription.jsx';
 
 const ProductOverview = (props) => {
@@ -11,30 +7,17 @@ const ProductOverview = (props) => {
     props.getProductData(props.product_id);
   }, [props.product_id]);
 
+  // console.log('PROPS STYLES', props.stylesInfo);
+
   return (
     <div className='MainProduct'>
-      <div className='TopInfo'>
-        <div className='ImageGallery'>
-          <ImageGallery />
-        </div>
-        <div className='InfoStyleEvents'>
-          <div className='NamePrice'>
-            <MainNameAndPrice />
-          </div>
-          <div className='StyleSelector'>
-            <StyleSelector />
-          </div>
-          <div className='SizeQuantity'>
-            <SizeQuantityForm />
-          </div>
-          <div className='CartAndOutfit'>
-            <CartAndOutfit />
-          </div>
-        </div>
-      </div>
+      <ProductCard
+        productInfo={props.productInfo}
+        stylesInfo={props.stylesInfo}
+      />
       <div className='BottomDescription'>
         <div className='Description'>
-          <ProductDescription />
+          <ProductDescription productInfo={props.productInfo} />
         </div>
       </div>
     </div>
