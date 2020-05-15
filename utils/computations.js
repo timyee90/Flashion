@@ -1,5 +1,4 @@
 export const computeRecommendedPercentage = (reviews) => {
-  console.log('rec', reviews);
   if (reviews.length > 0) {
     const total = reviews.length;
     const count = reviews.reduce((acc, curr) => {

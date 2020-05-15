@@ -1,7 +1,7 @@
 import { SET_PRODUCT_ID } from '../constants/appTypes.js';
 
 const initState = {
-  product_id: 0,
+  product_id: 1,
 };
 
 const appReducer = (state = initState, action) => {

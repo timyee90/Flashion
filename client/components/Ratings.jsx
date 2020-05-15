@@ -18,7 +18,7 @@ const Ratings = (props) => {
   return (
     <div>
       <div>Ratings and Review</div>
-      <h1>{props.averageRating}</h1>
+      <h1>{props.averageRating.toFixed(1)}</h1>
       <div>
         <StarRating rating={props.averageRating} />
       </div>
