@@ -9,7 +9,6 @@ import { useParams } from 'react-router-dom';
 const App = (props) => {
   const params = useParams();
   useEffect(() => {
-    console.log(params.id);
     props.setProductID(params.id);
   });
   return (
