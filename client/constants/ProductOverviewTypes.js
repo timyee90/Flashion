@@ -6,3 +6,4 @@ export const SELECT_SIZE = 'SELECT_SIZE';
 export const ADD_TO_BAG = 'ADD_TO_BAG';
 export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
 export const GET_PRODUCT_DATA = 'GET_PRODUCT_DATA';
+export const GET_STYLES_DATA = 'GET_STYLES_DATA';
