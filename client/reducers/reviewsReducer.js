@@ -10,6 +10,7 @@ const initState = {
   sortingCriteria: '',
   reviews: [],
   numOfShownReviews: 0,
+  avg_rating: 5,
 };
 
 const reviewsReducer = (state = initState, action) => {
