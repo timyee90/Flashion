@@ -2,15 +2,13 @@ import {
   CHANGE_SORTING_CRITERIA,
   SHOW_MORE_REVIEWS,
   GET_REVIEWS_DATA,
+  GET_AVG_RATING,
+  GET_RECOMMENDED_PERCENTAGE,
 } from '../constants/ratingsReviewsTypes.js';
 
 const initState = {
   sortingCriteria: '',
-  reviews: [
-    {
-      recommend: [],
-    },
-  ],
+  reviews: [],
   numOfShownReviews: 0,
 };
 
@@ -30,6 +28,16 @@ const reviewsReducer = (state = initState, action) => {
       return {
         ...state,
         reviews: state.numOfShownReviews + 2,
+      };
+    case GET_AVG_RATING:
+      return {
+        ...state,
+        avg_rating: action.payload,
+      };
+    case GET_RECOMMENDED_PERCENTAGE:
+      return {
+        ...state,
+        recommendedPercentage: action.payload,
       };
     default:
       return state;

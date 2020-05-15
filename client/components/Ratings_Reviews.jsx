@@ -1,5 +1,5 @@
 import React from 'react';
-import Ratings from './Ratings.jsx';
+import Ratings from '../containers/RatingsContainer.js';
 import ReviewsSection from '../containers/ReviewsSectionContainer.js';
 
 const Ratings_Reviews = (props) => {
