@@ -8,8 +8,8 @@ import ProductDescription from './ProductDescription.jsx';
 
 const ProductOverview = (props) => {
   useEffect(() => {
-    props.getProductData(23);
-  }, []);
+    props.getProductData(props.product_id);
+  }, [props.product_id]);
 
   return (
     <div className='MainProduct'>
