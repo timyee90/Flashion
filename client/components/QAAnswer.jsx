@@ -3,7 +3,28 @@ import moment from 'moment';
 import Helpful from './Helpful.jsx';
 
 const Answer = ({ info }) => {
-  const photos = info.photos.length > 0 ? <div>insert photos</div> : '';
+  const photos =
+    info.photos.length > 0 ? (
+      <div>
+        {info.photos.map((photo) => {
+          return (
+            <div
+              style={{
+                textAlign: 'center',
+                height: '100px',
+                width: '100px',
+                objectFit: 'contain',
+                backgroundColor: 'wheat',
+              }}
+            >
+              <img src={photo} style={{ 'max-height': '100px' }} />
+            </div>
+          );
+        })}
+      </div>
+    ) : (
+      ''
+    );
   return (
     <div>
       <p>{info.body}</p>
