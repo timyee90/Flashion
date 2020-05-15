@@ -6,18 +6,20 @@ const Answer = ({ info }) => {
   const photos =
     info.photos.length > 0 ? (
       <div>
-        {info.photos.map((photo) => {
+        {info.photos.map((photo, index) => {
           return (
             <div
+              key={index}
               style={{
                 textAlign: 'center',
                 height: '100px',
-                width: '100px',
+                width: '200px',
                 objectFit: 'contain',
-                backgroundColor: 'wheat',
+                backgroundColor: '#C0C0C0',
+                border: '1px solid black',
               }}
             >
-              <img src={photo} style={{ 'max-height': '100px' }} />
+              <img src={photo} style={{ maxHeight: '100px' }} />
             </div>
           );
         })}
