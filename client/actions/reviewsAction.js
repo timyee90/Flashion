@@ -31,7 +31,6 @@ export const getReviewData = (id) => {
         type: GET_REVIEWS_DATA,
         payload: data,
       });
-      console.log('avg is: ', computeAverageRating(data));
       dispatch({
         type: GET_AVG_RATING,
         payload: computeAverageRating(data),
