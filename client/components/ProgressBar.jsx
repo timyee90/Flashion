@@ -5,13 +5,13 @@ const ProgressBar = (props) => {
     position: 'relative',
     height: '5px',
     width: '150px',
-    'border-radius': '12.5%',
+    borderRadius: '12.5%',
     border: '1px solid black',
   };
   const fillerStyle = {
     backgroundColor: 'black',
     height: '100%',
-    'border-radius': 'inherit',
+    borderRadius: 'inherit',
     width: `${props.percentage}%`,
   };
   return (

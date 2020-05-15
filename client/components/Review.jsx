@@ -7,9 +7,9 @@ const Review = ({ review }) => {
   // the following below will need to be revised for styling
   const recommended =
     review.recommend > 0 ? <p>&#10004; I recommend this product</p> : '';
-  const response = review.response ? <div>{review.response}</div> : '';
+  const response = review.response ? <div>{review.response}</div> : 'NONE';
   return (
-    <div>
+    <div className='review'>
       <StarRating rating={review.rating} />
       <h3>{review.summary}</h3>
       <p>

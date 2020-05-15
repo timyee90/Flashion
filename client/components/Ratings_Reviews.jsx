@@ -5,8 +5,12 @@ import ReviewsSection from '../containers/ReviewsSectionContainer.js';
 const Ratings_Reviews = (props) => {
   return (
     <div>
-      <Ratings />
-      <ReviewsSection />
+      <div className='ratingsContainer'>
+        <Ratings />
+      </div>
+      <div className='reviewsContainer'>
+        <ReviewsSection />
+      </div>
     </div>
   );
 };

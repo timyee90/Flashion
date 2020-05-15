@@ -27,7 +27,7 @@ const QAEntry = ({ qaInfo }) => {
         <p>Q: {qaInfo.question_body}</p>
         <Helpful type={'question'} />
       </div>
-      {answers}
+      A: {answers}
       {loadMoreAnswersBtn}
     </div>
   );

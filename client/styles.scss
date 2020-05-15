@@ -1,6 +1,15 @@
-$primary-color: white;
-$bg: black;
-.MainProduct {
-  color: $primary-color;
-  background-color: $bg;
+.ImageGallery {
+}
+
+.ratingsContainer {
+  float: left;
+  width: 30%;
+}
+.reviewsContainer {
+  float: right;
+  width: 50%;
+}
+
+.review {
+  border-bottom: 1px black solid;
 }
