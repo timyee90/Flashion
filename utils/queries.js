@@ -64,9 +64,44 @@ export const getRelatedProducts = (product_id) => {
   return axios
     .get(`${baseUrl}/products/${product_id}/related/`)
     .then(({ data }) => {
+      // console.log(`related products: `, data);
       return data;
     })
     .catch(handleError);
+};
+
+// nested API call for related products
+export const getRelatedProductMeta = (productId) => {
+  let results = getRelatedProducts(productId).then((relatedProductArray) => {
+    return relatedProductArray.map((relatedProduct) => {
+      // return [getProductInfo(relatedProduct), getProductStyles(productId)];
+      return getProductInfo(relatedProduct);
+    });
+  });
+
+  return results.then((promiseArray) => {
+    console.log(`PROMISE ARRAY: `, promiseArray);
+    return Promise.all(promiseArray).then((data) => {
+      let final = data.map((item) => {
+        return getProductStyles(item.id);
+      });
+      Promise.all(final).then((productStyles) => {
+        // console.log(`PRODUCT STYLES: `, productStyles);
+        return productStyles.map((product) => {
+          try {
+            console.log(`PRODUCT: `, product.results[0].photos);
+          } catch (err) {
+            console.log(`ERROR`, err);
+          }
+          return product.results[0];
+        });
+        // return productStyles;
+      });
+      // console.log(`STYLES: `, final);
+      console.log(`DATA`, data);
+      return data;
+    });
+  });
 };
 
 // <-------------------------------------------QA Queries------------------------------------------------>
@@ -155,7 +190,6 @@ export const reportAnswer = (answer_id) => {
 
 // Should return object with product, page-number, review-count, and array of review objects
 export const getReviews = (product_id) => {
-  console.log('yo');
   return axios
     .get(`${baseUrl}/reviews/${product_id}/list/`)
     .then(({ data }) => {
