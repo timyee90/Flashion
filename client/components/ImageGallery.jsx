@@ -1,11 +1,7 @@
 import React from 'react';
 
 const ImageGallery = (props) => {
-  return (
-    <div>
-      <img src={props.display} />
-    </div>
-  );
+  return <img id='MainImage' src={props.display} />;
 };
 
 export default ImageGallery;

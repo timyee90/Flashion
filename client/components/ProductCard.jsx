@@ -10,8 +10,10 @@ class ProductCard extends React.Component {
     super(props);
     this.state = {
       productName: '',
+      category: '',
       price: null,
-      style_id: null,
+      currentStyle: {},
+      styles: [],
       currentImage: '',
       images: [],
     };
@@ -21,7 +23,10 @@ class ProductCard extends React.Component {
     if (this.props.stylesInfo !== prevProps.stylesInfo) {
       this.setState({
         productName: this.props.productInfo.name,
-        price: this.props.productInfo.default_price,
+        category: this.props.productInfo.category,
+        price: this.props.stylesInfo.results[0].original_price,
+        currentStyle: this.props.stylesInfo.results[0],
+        styles: this.props.stylesInfo.results,
         currentImage: this.props.stylesInfo.results[0].photos[0].url,
         images: this.props.stylesInfo.results[0].photos,
       });
@@ -37,12 +42,16 @@ class ProductCard extends React.Component {
         <div className='InfoStyleEvents'>
           <div className='NamePrice'>
             <MainNameAndPrice
+              category={this.state.category}
               name={this.state.productName}
               price={this.state.price}
             />
           </div>
           <div className='StyleSelector'>
-            <StyleSelector />
+            <StyleSelector
+              currentStyle={this.state.currentStyle}
+              styles={this.state.styles}
+            />
           </div>
           <div className='SizeQuantity'>
             <SizeQuantityForm />
