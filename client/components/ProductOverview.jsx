@@ -7,8 +7,6 @@ const ProductOverview = (props) => {
     props.getProductData(props.product_id);
   }, [props.product_id]);
 
-  // console.log('PROPS STYLES', props.stylesInfo);
-
   return (
     <div className='MainProduct'>
       <ProductCard

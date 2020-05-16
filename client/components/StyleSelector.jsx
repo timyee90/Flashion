@@ -1,7 +1,19 @@
-import React from "react";
+import React from 'react';
+import StyleImage from './StyleImage';
 
-function StyleSelector() {
-  return <div></div>;
+function StyleSelector(props) {
+  return (
+    <div>
+      <p>
+        <em>Style > {props.currentStyle.name}</em>
+      </p>
+      <div>
+        {props.styles.map((style) => {
+          return <StyleImage style={style} />;
+        })}
+      </div>
+    </div>
+  );
 }
 
 export default StyleSelector;
