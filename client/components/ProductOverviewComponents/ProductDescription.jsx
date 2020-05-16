@@ -11,8 +11,8 @@ function ProductDescription(props) {
 
   return (
     <div>
-      <h4>{slogan}</h4>
-      <p>{description}</p>
+      <h3>{slogan}</h3>
+      <p id='description'>{description}</p>
     </div>
   );
 }

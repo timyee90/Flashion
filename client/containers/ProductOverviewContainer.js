@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ProductOverview from '../components/ProductOverview.jsx';
+import ProductOverview from '../components/ProductOverviewComponents/ProductOverview.jsx';
 import {
   getProductData,
   getStylesData,
