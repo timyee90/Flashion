@@ -17,6 +17,8 @@ class ProductCard extends React.Component {
       currentImage: '',
       images: [],
     };
+
+    this.changeCurrentStyle = this.changeCurrentStyle.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -31,6 +33,14 @@ class ProductCard extends React.Component {
         images: this.props.stylesInfo.results[0].photos,
       });
     }
+  }
+
+  changeCurrentStyle(obj) {
+    this.setState({
+      currentStyle: obj,
+      currentImage: obj.photos[0].url,
+      price: obj.original_price,
+    });
   }
 
   render() {
@@ -51,6 +61,7 @@ class ProductCard extends React.Component {
             <StyleSelector
               currentStyle={this.state.currentStyle}
               styles={this.state.styles}
+              changeCurrentStyle={this.changeCurrentStyle}
             />
           </div>
           <div className='SizeQuantity'>

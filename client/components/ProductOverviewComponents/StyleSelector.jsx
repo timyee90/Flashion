@@ -9,7 +9,12 @@ function StyleSelector(props) {
       </p>
       <div>
         {props.styles.map((style) => {
-          return <StyleImage style={style} />;
+          return (
+            <StyleImage
+              style={style}
+              changeCurrentStyle={props.changeCurrentStyle}
+            />
+          );
         })}
       </div>
     </div>
