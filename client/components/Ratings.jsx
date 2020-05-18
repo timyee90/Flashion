@@ -4,14 +4,28 @@ import StarRating from './StarRating.jsx';
 import ProgressBar from './ProgressBar.jsx';
 
 const Ratings = (props) => {
-  const starRows = ['1', '2', '3', '4', '5'].map((rating) => {
+  useEffect(() => {
+    props.getReviewsMetaData(props.product_id);
+  }, [props.product_id]);
+
+  const addFilter = (e) => {
+    e.preventDefault();
+    let ratingClicked = e.target.getAttribute('value');
+  };
+
+  const starRows = ['5', '4', '3', '2', '1'].map((rating) => {
+    const ratingPercentage = props.reviewsMeta ? props.reviewsMeta[rating] : 0;
+
     return (
       <tr key={rating}>
         <td>
-          <a href={'/'}>{rating} stars</a>
-          <ProgressBar percentage={50} />
+          <a value={rating} onClick={addFilter}>
+            {rating} stars
+          </a>
         </td>
-        <td>{/*add bar showing percent distribution*/}</td>
+        <td>
+          <ProgressBar percentage={ratingPercentage} />
+        </td>
       </tr>
     );
   });
