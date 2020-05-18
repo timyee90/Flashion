@@ -4,6 +4,7 @@ import {
   GET_RECOMMENDED_PERCENTAGE,
   GET_REVIEWS_META_DATA,
 } from '../constants/ratingsReviewsTypes.js';
+import { toggleRatingFilter } from '../../utils/computations';
 
 const initState = {
   ratingFilter: [],
@@ -14,7 +15,7 @@ const ratingsReducer = (state = initState, action) => {
     case CHANGE_RATING_FILTER:
       return {
         ...state,
-        ratingFilter: action.payload,
+        ratingFilter: toggleRatingFilter(action.payload, state.ratingFilter),
       };
     case GET_REVIEWS_META_DATA:
       return {

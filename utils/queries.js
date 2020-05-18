@@ -182,7 +182,7 @@ export const reportAnswer = (answer_id) => {
 // <------------------------------------Rating and Review Queries-------------------------------------->
 
 // Should return object with product, page-number, review-count, and array of review objects
-export const getReviews = (product_id, sort, ratingSort) => {
+export const getReviews = (product_id, sort) => {
   return axios
     .get(`${baseUrl}/reviews/${product_id}/list/`, {
       params: {

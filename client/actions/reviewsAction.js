@@ -6,7 +6,10 @@ import {
   GET_RECOMMENDED_PERCENTAGE,
 } from '../constants/ratingsReviewsTypes';
 import { computeAverageRating } from '../../utils/computeRatingAverage.js';
-import { computeRecommendedPercentage } from '../../utils/computations.js';
+import {
+  computeRecommendedPercentage,
+  filterReviews,
+} from '../../utils/computations.js';
 import { getReviews } from '../../utils/queries';
 
 //needs to be async func
@@ -30,7 +33,7 @@ export const getReviewData = (id, sorting, ratingSort) => {
     getReviews(id, sorting, ratingSort).then((data) => {
       dispatch({
         type: GET_REVIEWS_DATA,
-        payload: data,
+        payload: filterReviews(data, ratingSort),
       });
       dispatch({
         type: GET_AVG_RATING,

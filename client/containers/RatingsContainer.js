@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 import Ratings from '../components/Ratings.jsx';
-import { getReviewsMetaData } from '../actions/ratingsAction';
+import {
+  getReviewsMetaData,
+  changeRatingFilter,
+} from '../actions/ratingsAction';
 
 const mapStateToProps = (state) => {
   return {
@@ -16,6 +19,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getReviewsMetaData: (arg) => {
       dispatch(getReviewsMetaData(arg));
+    },
+    changeRatingFilter: (arg) => {
+      dispatch(changeRatingFilter(arg));
     },
   };
 };

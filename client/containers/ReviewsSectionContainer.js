@@ -4,7 +4,6 @@ import {
   getReviewData,
   changeSortCriteriaReview,
 } from '../actions/reviewsAction.js';
-import { getAvgRating } from '../actions/ratingsAction.js';
 
 const mapStateToProps = (state) => {
   return {

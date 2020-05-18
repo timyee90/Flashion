@@ -15,7 +15,10 @@ const Ratings = (props) => {
   const addFilter = (e) => {
     e.preventDefault();
     let ratingClicked = e.target.getAttribute('value');
-    console.log(ratingClicked);
+    const newClass = e.target.className === '' ? 'clickedRating' : '';
+    console.log(newClass);
+    e.target.className = newClass;
+    props.changeRatingFilter(ratingClicked);
   };
 
   const starRows = ['5', '4', '3', '2', '1'].map((rating) => {
@@ -26,7 +29,7 @@ const Ratings = (props) => {
     const count = props.reviewsMeta ? props.reviewsMeta[rating].count : 0;
 
     return (
-      <tr key={rating}>
+      <tr key={rating} id={rating}>
         <td>
           <a style={ratingStyle} value={rating} onClick={addFilter}>
             {rating} stars
