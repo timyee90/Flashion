@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import RelatedProductsList from '../components/RelatedProductsList.jsx';
 import { getRelatedProductIds } from '../actions/relatedProductActions.js';
+import { setProductID } from '../actions/appAction.js';
 
 const mapStateToProps = (state) => {
   return {
@@ -13,6 +14,9 @@ const mapDisPatchToProps = (dispatch) => {
   return {
     getRelatedProductIds: (arg) => {
       dispatch(getRelatedProductIds(arg));
+    },
+    setProductID: (arg) => {
+      dispatch(setProductID(arg));
     },
   };
 };

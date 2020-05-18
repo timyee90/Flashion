@@ -79,3 +79,22 @@
 .review {
   border-bottom: 1px black solid;
 }
+
+.carousel-container {
+  display: flex;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-flow: row nowrap;
+  flex-basis: auto;
+}
+
+.related-products-title {
+  display: grid;
+  justify-items: center;
+}
+
+.btn-overlap {
+  position: absolute;
+  transform: translate(-100%, 0%);
+}

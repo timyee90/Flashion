@@ -10,6 +10,11 @@ const RelatedProductsList = (props) => {
     (relatedProduct) => {
       return (
         <RelatedProductsListEntry
+          setProductId={(id) => {
+            props.setProductID(id);
+          }}
+          className='product-container'
+          id={relatedProduct[0].id}
           key={relatedProduct[0].id}
           product={relatedProduct[0]}
           style={relatedProduct[1]}
@@ -21,9 +26,8 @@ const RelatedProductsList = (props) => {
 
   return (
     <div>
-      <h3>Related Products</h3>
-      <br />
-      {relatedProductEntries}
+      <h3 className='related-products-title'>Related Products</h3>
+      <div className='carousel-container'>{relatedProductEntries}</div>
     </div>
   );
 };
