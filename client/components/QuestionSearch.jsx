@@ -15,6 +15,7 @@ const QuestionSearch = (props) => {
           value={search}
           onChange={handleChange}
           placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...'
+          className='questionSearch'
         ></input>
         <input
           type='button'

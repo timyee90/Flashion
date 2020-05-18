@@ -23,11 +23,13 @@ const QASection = (props) => {
     : allQAEntries;
 
   return (
-    <div>
-      <h3>Questions & Answers</h3>
-      <QuestionSearch />
-      {QAEntries}
-      <QAButtons toggleHide={toggleHide} />
+    <div className='widgetContainer qaSection'>
+      <div>
+        <h3>Questions & Answers</h3>
+        <QuestionSearch />
+        {QAEntries}
+        <QAButtons toggleHide={toggleHide} />
+      </div>
     </div>
   );
 };

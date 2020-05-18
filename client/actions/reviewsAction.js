@@ -24,9 +24,10 @@ export const changeSortCriteriaReview = (criteria) => {
   };
 };
 
-export const getReviewData = (id) => {
+export const getReviewData = (id, sorting, ratingSort) => {
+  console.log(id, sorting, ratingSort);
   return (dispatch) => {
-    getReviews(id).then((data) => {
+    getReviews(id, sorting, ratingSort).then((data) => {
       dispatch({
         type: GET_REVIEWS_DATA,
         payload: data,

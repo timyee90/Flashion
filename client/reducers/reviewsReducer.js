@@ -7,7 +7,7 @@ import {
 } from '../constants/ratingsReviewsTypes.js';
 
 const initState = {
-  sortingCriteria: '',
+  sortingCriteria: 'helpful',
   reviews: [],
   numOfShownReviews: 0,
   avg_rating: 5,

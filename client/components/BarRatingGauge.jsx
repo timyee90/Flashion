@@ -1,7 +1,14 @@
-import React from "react";
+import React from 'react';
+import HorizontalGauge from 'react-horizontal-gauge';
 
 const BarRatingGauge = (props) => {
-  return <div>show rating for {props.category}</div>;
+  return (
+    <div>
+      {props.category}
+      <br />
+      <HorizontalGauge height={40} width={200} />
+    </div>
+  );
 };
 
 export default BarRatingGauge;

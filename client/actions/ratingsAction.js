@@ -22,7 +22,10 @@ export const getReviewsMetaData = (product_id) => {
         const ratingGraphData = {};
         for (let i = 1; i < 6; i++) {
           if (data.ratings[i]) {
-            ratingGraphData[i] = (data.ratings[i] / total) * 100;
+            ratingGraphData[i] = {
+              percent: (data.ratings[i] / total) * 100,
+              count: data.ratings[i],
+            };
           } else {
             ratingGraphData[i] = 0;
           }

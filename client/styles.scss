@@ -79,3 +79,19 @@
 .review {
   border-bottom: 1px black solid;
 }
+
+.widgetContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.questionSearch {
+  width: 70%;
+}
+
+.question {
+  float: left;
+}
+.helpful {
+  float: right;
+}
