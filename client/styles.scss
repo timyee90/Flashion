@@ -16,6 +16,7 @@
     .ImageGallery {
       align-self: center;
       justify-self: center;
+      width: 65%;
       #MainImage {
         display: block;
         width: 50%;
@@ -28,20 +29,25 @@
       display: flex;
       align-self: center;
       justify-self: center;
+      justify-content: center;
       flex-direction: column;
+      width: 35%;
+      margin-right: 25px;
 
       .NameAndPrice {
         order: 0;
+        justify-content: center;
       }
 
       .StyleSelector {
         order: 1;
         flex-direction: row wrap;
-        width: 380px;
+        width: 320px;
+        justify-content: center;
 
         #StyleImage {
-          width: 75px;
-          height: 75px;
+          width: 20%;
+          height: 60px;
           border-radius: 50%;
           margin: 10px 10px 10px 0px;
         }
@@ -52,6 +58,12 @@
   .BottomDescription {
     display: flex;
     align-self: flex-end;
+    width: 75%;
+    justify-content: center;
+
+    #description {
+      justify-self: center;
+    }
   }
 }
 
