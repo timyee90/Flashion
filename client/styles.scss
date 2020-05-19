@@ -126,6 +126,31 @@
   border-bottom: 1px black solid;
 }
 
+.widgetContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.questionSearch {
+  width: 70%;
+}
+
+.question {
+  float: left;
+}
+.helpful {
+  float: right;
+}
+
+.clickedRating {
+  background-color: gray;
+}
+
+.response {
+  background-color: #f0f0f0;
+  padding: 2px 5px 10px 15px;
+}
+
 .carousel-container {
   display: flex;
   grid-template-columns: repeat(5, 1fr);

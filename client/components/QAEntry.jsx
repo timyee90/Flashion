@@ -24,10 +24,22 @@ const QAEntry = ({ qaInfo }) => {
   return (
     <div>
       <div>
-        <p>Q: {qaInfo.question_body}</p>
-        <Helpful type={'question'} />
+        <div className='qaHeader'>
+          <div className='question'>
+            <p>{qaInfo.question_body}</p>
+          </div>
+          <div className='helpful'>
+            <Helpful
+              type={'question'}
+              count={qaInfo.question_helpfulness}
+              id={qaInfo.question_id}
+            />
+          </div>
+        </div>
       </div>
-      A: {answers}
+      <br />
+      <p>A:</p>
+      <div>{answers}</div>
       {loadMoreAnswersBtn}
     </div>
   );

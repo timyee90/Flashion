@@ -11,3 +11,23 @@ export const computeRecommendedPercentage = (reviews) => {
     return 0;
   }
 };
+
+export const toggleRatingFilter = (rating, currentRatingFilters) => {
+  if (currentRatingFilters.includes(rating)) {
+    let index = currentRatingFilters.indexOf(rating);
+    currentRatingFilters.splice(index, 1);
+  } else {
+    currentRatingFilters.push(rating);
+  }
+  return [...currentRatingFilters];
+};
+
+export const filterReviews = (reviews, ratingSort) => {
+  if (ratingSort.length > 0) {
+    return reviews.filter((review) => {
+      return ratingSort.includes(review.rating.toString());
+    });
+  } else {
+    return [...reviews];
+  }
+};
