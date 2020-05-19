@@ -144,3 +144,9 @@
   position: absolute;
   transform: translate(-100%, 0%);
 }
+
+.rel-prod-img {
+  width: 300px;
+  height: 450px;
+  object-fit: cover;
+}

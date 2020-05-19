@@ -23,23 +23,13 @@ const ProductListEntry = ({
     getProductComparison(comparison(id, currentId));
   }, []);
 
-  // const customStyles = {
-  //   content: {
-  //     top: '50%',
-  //     left: '50%',
-  //     right: 'auto',
-  //     bottom: 'auto',
-  //     marginRight: '50%',
-  //     transform: 'translate(-50%, -50%)',
-  //   },
-  // };
-
-  // Modal.setAppElement(document.getElementById('app'));
-
   return (
     <div>
-      <img src={url} onClick={() => setProductId(id)}></img>
-      {/* <Modal isOpen={true} styles={customStyles} closeTimeoutMS={0} /> */}
+      <img
+        className='rel-prod-img'
+        src={url}
+        onClick={() => setProductId(id)}
+      ></img>
       <button
         onClick={() => {
           productComparison.then((data) => {
