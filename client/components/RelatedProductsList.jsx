@@ -19,6 +19,8 @@ const RelatedProductsList = (props) => {
           product={relatedProduct[0]}
           style={relatedProduct[1]}
           rating={relatedProduct[2]}
+          currentId={props.product_id}
+          compare={props.getComparisonInfo}
         />
       );
     }
