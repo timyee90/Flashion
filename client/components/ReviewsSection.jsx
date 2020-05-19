@@ -40,7 +40,7 @@ const ReviewsSection = (props) => {
   return (
     <div>
       <div>
-        # reviews, sorted by{' '}
+        {props.count} reviews, sorted by{' '}
         <Select
           options={selectOptions}
           defaultValue={{ value: 'helpful', label: 'Helpful' }}

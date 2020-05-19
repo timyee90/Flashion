@@ -4,6 +4,7 @@ import {
   GET_REVIEWS_DATA,
   GET_AVG_RATING,
   GET_RECOMMENDED_PERCENTAGE,
+  GET_REVIEWS_COUNT,
 } from '../constants/ratingsReviewsTypes.js';
 
 const initState = {
@@ -39,6 +40,11 @@ const reviewsReducer = (state = initState, action) => {
       return {
         ...state,
         recommendedPercentage: action.payload,
+      };
+    case GET_REVIEWS_COUNT:
+      return {
+        ...state,
+        count: action.payload,
       };
     default:
       return state;

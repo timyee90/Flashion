@@ -4,6 +4,7 @@ import {
   GET_REVIEWS_DATA,
   GET_AVG_RATING,
   GET_RECOMMENDED_PERCENTAGE,
+  GET_REVIEWS_COUNT,
 } from '../constants/ratingsReviewsTypes';
 import { computeAverageRating } from '../../utils/computeRatingAverage.js';
 import {
@@ -12,7 +13,6 @@ import {
 } from '../../utils/computations.js';
 import { getReviews } from '../../utils/queries';
 
-//needs to be async func
 export const renderMoreReviews = (currentlyShownNumberOfReviews) => {
   return {
     type: SHOW_MORE_REVIEWS,
@@ -28,7 +28,6 @@ export const changeSortCriteriaReview = (criteria) => {
 };
 
 export const getReviewData = (id, sorting, ratingSort) => {
-  console.log(id, sorting, ratingSort);
   return (dispatch) => {
     getReviews(id, sorting, ratingSort).then((data) => {
       dispatch({
@@ -42,6 +41,10 @@ export const getReviewData = (id, sorting, ratingSort) => {
       dispatch({
         type: GET_RECOMMENDED_PERCENTAGE,
         payload: computeRecommendedPercentage(data),
+      });
+      dispatch({
+        type: GET_REVIEWS_COUNT,
+        payload: data.length,
       });
     });
   };

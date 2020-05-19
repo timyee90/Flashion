@@ -29,7 +29,11 @@ const QAEntry = ({ qaInfo }) => {
             <p>{qaInfo.question_body}</p>
           </div>
           <div className='helpful'>
-            <Helpful type={'question'} />
+            <Helpful
+              type={'question'}
+              count={qaInfo.question_helpfulness}
+              id={qaInfo.question_id}
+            />
           </div>
         </div>
       </div>

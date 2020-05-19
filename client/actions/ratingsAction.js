@@ -1,6 +1,7 @@
 import {
   CHANGE_RATING_FILTER,
   GET_REVIEWS_META_DATA,
+  CLEAR_RATING_FILTER,
 } from '../constants/ratingsReviewsTypes.js';
 import { getReviewMeta } from '../../utils/queries';
 
@@ -38,5 +39,12 @@ export const getReviewsMetaData = (product_id) => {
           payload: chartData,
         });
       });
+  };
+};
+
+export const clearRatingFilter = () => {
+  return {
+    type: CLEAR_RATING_FILTER,
+    payload: [],
   };
 };

@@ -3,6 +3,7 @@ import Ratings from '../components/Ratings.jsx';
 import {
   getReviewsMetaData,
   changeRatingFilter,
+  clearRatingFilter,
 } from '../actions/ratingsAction';
 
 const mapStateToProps = (state) => {
@@ -12,6 +13,7 @@ const mapStateToProps = (state) => {
     averageRating: state.reviews.avg_rating,
     recommendedPercentage: state.reviews.recommendedPercentage,
     reviewsMeta: state.ratings.reviewMetadata,
+    ratingsFilter: state.ratings.ratingFilter,
   };
 };
 
@@ -22,6 +24,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     changeRatingFilter: (arg) => {
       dispatch(changeRatingFilter(arg));
+    },
+    clearRatingFilter: () => {
+      dispatch(clearRatingFilter());
     },
   };
 };
