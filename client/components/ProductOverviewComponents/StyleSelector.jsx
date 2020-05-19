@@ -7,7 +7,7 @@ function StyleSelector(props) {
       <p>
         <em>Style > {props.currentStyle.name}</em>
       </p>
-      <div>
+      <div id='StyleImages'>
         {props.styles.map((style) => {
           return (
             <StyleImage
