@@ -44,6 +44,7 @@ const Ratings = (props) => {
     }
     return (
       <RatingRow
+        key={rating}
         rating={rating}
         value={rating}
         changeRatingFilter={changeRatingFilter}

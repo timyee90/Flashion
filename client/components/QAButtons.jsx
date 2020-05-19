@@ -1,9 +1,19 @@
 import React from 'react';
 
 const QAButtons = (props) => {
+  const showMoreBtn =
+    props.count > 2 && props.currentlyShown < props.count ? (
+      <input
+        type='button'
+        value='MORE ANSWERED QUESTIONS'
+        onClick={props.showMore}
+      ></input>
+    ) : (
+      ''
+    );
   return (
     <div>
-      <input type='button' value='MORE ANSWERED QUESTIONS'></input>
+      {showMoreBtn}
       <input type='button' value='ADD A QUESTION + '></input>
     </div>
   );

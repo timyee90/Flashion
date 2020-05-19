@@ -5,30 +5,47 @@ import QAButtons from './QAButtons.jsx';
 
 const QASection = (props) => {
   const [areQuestionsHidden, toggleHideQuestions] = useState(true);
+  const [keywordSearch, setKeywordSearch] = useState(0);
+  const [questionsShown, showMore] = useState(2);
 
-  const toggleHide = () => {
-    toggleHideQuestions(!areQuestionsHidden);
+  const showMoreQuestions = () => {
+    showMore((prev) => prev + 2);
   };
 
   useEffect(() => {
     props.getQAData(props.product_id);
   }, [props.product_id]);
 
-  const allQAEntries = props.entries.map((qa, index) => {
-    return <QAEntry key={index} qaInfo={qa} />;
-  });
-
-  const QAEntries = areQuestionsHidden
-    ? allQAEntries.slice(0, 2)
-    : allQAEntries;
-
+  const allQAEntries =
+    keywordSearch.length < 3
+      ? props.entries.map((qa, index) => {
+          return <QAEntry key={index} qaInfo={qa} />;
+        })
+      : props.entries
+          .filter((entry) => {
+            return RegExp(keywordSearch, 'gi').test(entry.question_body);
+          })
+          .map((qa, index) => {
+            return <QAEntry key={index} qaInfo={qa} />;
+          });
+  const QAEntries = allQAEntries.slice(0, questionsShown);
+  console.log(QAEntries);
+  const handleQuestionSearch = (keyword) => {
+    console.log(keyword);
+    setKeywordSearch(keyword);
+  };
+  const count = props.entries ? props.entries.length : 0;
   return (
     <div className='widgetContainer qaSection'>
       <div>
         <h3>Questions & Answers</h3>
-        <QuestionSearch />
+        <QuestionSearch keywordSearch={handleQuestionSearch} />
         {QAEntries}
-        <QAButtons toggleHide={toggleHide} />
+        <QAButtons
+          showMore={showMoreQuestions}
+          count={count}
+          currentlyShown={questionsShown}
+        />
       </div>
     </div>
   );
