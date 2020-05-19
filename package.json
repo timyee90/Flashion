@@ -22,11 +22,7 @@
     "nodemon": "^2.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-<<<<<<< HEAD
-    "react-modal": "^3.11.2",
-=======
     "react-horizontal-gauge": "^0.1.2",
->>>>>>> abcba35de835c72f1f0e1bb72a3c49ccfd9bc52a
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-select": "^3.1.0",
