@@ -1,45 +1,67 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {
+  markAnswerHelpful,
+  markQuestionHelpful,
+  markReviewHelpful,
+  reportAnswer,
+  reportQuestion,
+  reportReview,
+} from '../../utils/queries';
 
 const Helpful = (props) => {
+  const [isReported, report] = useState(false);
   const anchorStyle = {
     cursor: 'pointer',
     textDecorationLine: 'underLine',
   };
-  const host = 'http://18.224.200.47';
-  let endpoint;
-  if (props.type === 'answer') {
-    endpoint = host + `/qa/answer/${props.id}/helpful`;
-  } else if (props.type === 'question') {
-    endpoint = host + `/qa/question/${props.id}/helpful`;
-  } else if (props.type === 'reviews') {
-    endpoint = host + `/reviews/helpful/${props.id}`;
-  }
   const count = props.count > 0 ? ` (${props.count})` : '0';
 
   const handleReport = () => {
-    console.log('report', props.id);
+    if (props.type === 'answer') {
+      reportAnswer(props.id);
+      report(true);
+    }
+    if (props.type === 'question') {
+      reportQuestion(props.id);
+    }
+    if (props.type === 'review') {
+      reportReview(props.id);
+    }
   };
 
   const handleHelpfulClick = () => {
-    console.log('helpful', props.id);
+    if (props.type === 'answer') {
+      markAnswerHelpful(props.id);
+    }
+    if (props.type === 'question') {
+      markQuestionHelpful(props.id);
+    }
+    if (props.type === 'review') {
+      markReviewHelpful(props.id);
+    }
   };
 
   const handleAddAnswer = () => {
-    console.log('answer', props.id);
+    console.log('adding answer to question', props.id);
   };
+  const reportModule = isReported ? (
+    <p>Reported</p>
+  ) : (
+    <a style={anchorStyle} onClick={handleReport}>
+      Report
+    </a>
+  );
   const module =
     props.type === 'question' ? (
       <a style={anchorStyle} onClick={handleAddAnswer}>
         Add Answer
       </a>
     ) : (
-      <a style={anchorStyle} onClick={handleReport}>
-        Report
-      </a>
+      reportModule
     );
   return (
     <div>
-      <p>
+      <div>
         Helpful?{' '}
         <a style={anchorStyle} onClick={handleHelpfulClick}>
           {' '}
@@ -47,7 +69,7 @@ const Helpful = (props) => {
         </a>{' '}
         {count} |{'  '}
         {module}
-      </p>
+      </div>
     </div>
   );
 };
