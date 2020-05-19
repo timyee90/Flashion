@@ -1,55 +1,100 @@
 .MainProduct {
   display: flex;
-  align-content: flex-start;
-  justify-content: center;
-  flex-flow: row wrap;
   width: 100%;
-  height: 100%;
+  height: 650px;
+  align-content: flex-start;
+  flex-flow: row wrap;
+  justify-content: center;
 
   .TopInfo {
     display: flex;
-    align-self: flex-start;
     width: 75%;
-    height: 75%;
+    height: 80%;
+    align-self: flex-start;
+    align-content: center;
     justify-content: space-evenly;
 
     .ImageGallery {
-      align-self: center;
-      justify-self: center;
       width: 65%;
+      height: 100%;
+      background-color: lightgray;
+      margin-right: 15px;
+
       #MainImage {
         display: block;
-        width: 50%;
-        height: 50%;
+        width: 80%;
+        height: 100%;
+        object-fit: contain;
         margin: auto;
       }
     }
 
     .InfoStyleEvents {
       display: flex;
-      align-self: center;
-      justify-self: center;
-      justify-content: center;
       flex-direction: column;
       width: 35%;
+      height: 100%;
       margin-right: 25px;
+      justify-content: center;
 
       .NameAndPrice {
         order: 0;
-        justify-content: center;
+        width: 100%;
+        height: 33%;
       }
 
       .StyleSelector {
         order: 1;
+        width: 100%;
         flex-direction: row wrap;
-        width: 320px;
-        justify-content: center;
 
         #StyleImage {
           width: 20%;
           height: 60px;
           border-radius: 50%;
+          border: solid 3px transparent;
           margin: 10px 10px 10px 0px;
+        }
+        #StyleImage:hover {
+          border: solid 3px gray;
+          cursor: pointer;
+        }
+      }
+
+      .SizeQuantityCart {
+        order: 2;
+        width: 100%;
+
+        #sizes {
+          width: 60%;
+          height: 40px;
+          font-size: 14px;
+          padding: 10px;
+          float: left;
+        }
+
+        #sizes:hover {
+          cursor: pointer;
+        }
+
+        #quantities {
+          width: 30%;
+          height: 40px;
+          font-size: 14px;
+          padding: 10px;
+          float: right;
+        }
+
+        #quantities:hover {
+          cursor: pointer;
+        }
+
+        #addToCart {
+          width: 100%;
+          height: 40px;
+          font-size: 14px;
+          padding: 10px;
+          margin: 20px 10px 10px 0px;
         }
       }
     }
@@ -59,6 +104,7 @@
     display: flex;
     align-self: flex-end;
     width: 75%;
+    height: 20%;
     justify-content: center;
 
     #description {

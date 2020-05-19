@@ -4,14 +4,16 @@ import ProductDescription from './ProductDescription.jsx';
 
 const ProductOverview = (props) => {
   useEffect(() => {
-    props.getProductData(props.product_id);
-  }, [props.product_id]);
+    props.getProductData(props.productId);
+  }, [props.productId]);
 
   return (
     <div className='MainProduct'>
       <ProductCard
         productInfo={props.productInfo}
         stylesInfo={props.stylesInfo}
+        rating={props.averageRating}
+        productId={props.productId}
       />
       <div className='BottomDescription'>
         <div className='Description'>
