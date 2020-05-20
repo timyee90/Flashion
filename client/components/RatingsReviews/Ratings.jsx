@@ -46,11 +46,7 @@ const Ratings = (props) => {
     }
     return (
       <RatingRow
-<<<<<<< HEAD:client/components/Ratings.jsx
-        key={id}
-=======
         key={rating}
->>>>>>> 5add541a742b5eb656256b8ab7999c9676751483:client/components/RatingsReviews/Ratings.jsx
         rating={rating}
         value={rating}
         changeRatingFilter={changeRatingFilter}
