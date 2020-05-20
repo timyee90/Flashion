@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const QuestionSearch = (props) => {
   const [search, changeSearchTerms] = useState('');
-  const queryQuestionSearch = () => {};
 
   const handleChange = (e) => {
     changeSearchTerms(e.target.value);
   };
+
+  useEffect(() => {
+    props.keywordSearch(search);
+  }, [search]);
+
   return (
     <div>
       <form>
@@ -16,11 +20,6 @@ const QuestionSearch = (props) => {
           onChange={handleChange}
           placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...'
           className='questionSearch'
-        ></input>
-        <input
-          type='button'
-          onClick={queryQuestionSearch}
-          value={'SUBMIT'}
         ></input>
       </form>
     </div>

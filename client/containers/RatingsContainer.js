@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Ratings from '../components/Ratings.jsx';
+import Ratings from '../components/RatingsReviews/Ratings.jsx';
 import {
   getReviewsMetaData,
   changeRatingFilter,

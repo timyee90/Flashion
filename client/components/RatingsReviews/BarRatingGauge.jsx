@@ -6,7 +6,7 @@ const BarRatingGauge = (props) => {
     <div>
       {props.category}
       <br />
-      <HorizontalGauge height={40} width={200} />
+      {/* <HorizontalGauge height={40} width={200} /> */}
     </div>
   );
 };

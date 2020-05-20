@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ReviewsSection from '../components/ReviewsSection.jsx';
+import ReviewsSection from '../components/RatingsReviews/ReviewsSection.jsx';
 import {
   getReviewData,
   changeSortCriteriaReview,

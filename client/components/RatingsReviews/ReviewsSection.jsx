@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import Review from './Review.jsx';
 import Select from 'react-select';
+import Review from './Review.jsx';
+import AddReviewModal from './AddReviewModal.jsx';
+import StarRatingModule from 'react-star-ratings';
 
 const ReviewsSection = (props) => {
   const [moreReviews, loadMoreReviews] = useState(false);
   const [toggleBtnText, changeToggleBtnText] = useState('SHOW MORE REVIEWS');
+  const [modalVisibility, setModalVisibility] = useState(false);
 
   let loadMoreReviewsBtn = '';
   let filteredReviews = props.reviews;
@@ -37,6 +40,13 @@ const ReviewsSection = (props) => {
     props.changeSortCriteriaReview(e.value);
   };
 
+  const showModal = () => {
+    setModalVisibility(true);
+  };
+  const hideModal = () => {
+    setModalVisibility(false);
+  };
+
   return (
     <div>
       <div>
@@ -49,6 +59,12 @@ const ReviewsSection = (props) => {
       </div>
       <div>{reviews}</div>
       {loadMoreReviewsBtn}
+      <button onClick={showModal}>ADD A REVIEW + </button>
+      <AddReviewModal
+        handleClose={hideModal}
+        show={modalVisibility}
+        product_id={props.product_id}
+      />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import QAAnswer from './QAAnswer.jsx';
-import Helpful from './Helpful.jsx';
+import Helpful from '../RatingsReviews/Helpful.jsx';
 
 const QAEntry = ({ qaInfo }) => {
   const [moreAnswers, loadMoreAnswers] = useState(false);
