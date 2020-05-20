@@ -153,22 +153,17 @@
 
 .carousel-container {
   display: flex;
-  grid-template-columns: repeat(5, 1fr);
   justify-content: center;
-  flex-wrap: nowrap;
-  flex-flow: row nowrap;
-  flex-basis: auto;
 }
 
-.related-products-title {
-  display: grid;
-  justify-items: center;
+.related {
+  display: flex;
+  justify-content: center;
 }
 
 .btn-overlap {
   position: absolute;
   transform: translate(-100%, 0%);
-  // background-color: gray;
 }
 
 .rel-prod-img {
@@ -177,6 +172,25 @@
   object-fit: cover;
 }
 
-// .star-btn {
-//   color: gold;
-// }
+.rel-prod-img:hover {
+  opacity: 0.75;
+}
+
+.add-outfit-container {
+  width: 300px;
+  height: 450px;
+  // border-color: black;
+  border: 1px solid;
+}
+
+.outfit {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-outfit {
+  margin: 0;
+  position: relative;
+  top: 50%;
+  left: 25%;
+}
