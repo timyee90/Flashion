@@ -11,10 +11,10 @@ const CharacteristicsForm = (props) => {
     'fit',
   ].map((el, index) => {
     const description = (
-      <tr>
+      <tr key={(index + 1) * 2}>
         {[0, 1, 2, 3, 4, 5].map((index) => {
           if (index === 0) {
-            return <td></td>;
+            return <td key={index}></td>;
           }
           return <td key={index}>{characteristicsChart[el][index]}</td>;
         })}

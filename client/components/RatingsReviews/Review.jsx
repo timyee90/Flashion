@@ -20,7 +20,7 @@ const Review = ({ review }) => {
       <p>{review.body}</p>
       <div>{recommended}</div>
       <div className='response'>
-        <p>Response:</p>
+        <div className='bold'>Response:</div>
         <div>{response}</div>
       </div>
       <div>

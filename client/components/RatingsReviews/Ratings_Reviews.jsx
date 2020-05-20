@@ -6,7 +6,7 @@ const Ratings_Reviews = (props) => {
   return (
     <div className='RRContainer'>
       <div className='RRSection'>
-        <h3>Ratings and Reviews</h3>
+        <div className='sectionTitle'>Ratings and Reviews</div>
         <div className='flex-row'>
           <div className='ratingsContainer'>
             <Ratings />

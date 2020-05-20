@@ -36,7 +36,7 @@ const QASection = (props) => {
   return (
     <div className='QAContainer'>
       <div className='QASection'>
-        <h3>Questions & Answers</h3>
+        <div className='sectionTitle'>Questions & Answers</div>
         <div className='QASearch'>
           <QuestionSearch keywordSearch={handleQuestionSearch} />
         </div>

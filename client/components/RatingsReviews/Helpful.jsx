@@ -45,7 +45,7 @@ const Helpful = (props) => {
     console.log('adding answer to question', props.id);
   };
   const reportModule = isReported ? (
-    <p>Reported</p>
+    <div>Reported</div>
   ) : (
     <a style={anchorStyle} onClick={handleReport}>
       Report
@@ -67,9 +67,9 @@ const Helpful = (props) => {
           Yes
         </a>
       </div>
-      <div>
-        {count} |{module}
-      </div>
+      <div>{count}</div>
+      <div>|</div>
+      <div>{module}</div>
     </div>
   );
 };

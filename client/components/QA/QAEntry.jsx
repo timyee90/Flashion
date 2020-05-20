@@ -27,23 +27,21 @@ const QAEntry = ({ qaInfo }) => {
 
   return (
     <div className='QAEntry'>
-      <div>
-        <div className='QAHeader'>
-          <div className='bold fs32'>Q:</div>
-          <div className='QAQHelpful'>
-            <div className='question bold fs32'>{qaInfo.question_body}</div>
-            <div className='helpful'>
-              <Helpful
-                type={'question'}
-                count={qaInfo.question_helpfulness}
-                id={qaInfo.question_id}
-              />
-            </div>
+      <div className='QAHeader'>
+        <div className='bold fs32 left-shift'>Q:</div>
+        <div className='QAQHelpful'>
+          <div className='question bold fs32'>{qaInfo.question_body}</div>
+          <div className='helpful'>
+            <Helpful
+              type={'question'}
+              count={qaInfo.question_helpfulness}
+              id={qaInfo.question_id}
+            />
           </div>
         </div>
       </div>
       <div className='AnswerSection'>
-        <div className='bold fs32'>A:</div>
+        <div className='bold fs32 left-shift'>A:</div>
         <div>
           {answers}
           {loadMoreAnswersBtn}

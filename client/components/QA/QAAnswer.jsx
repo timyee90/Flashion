@@ -27,11 +27,11 @@ const Answer = ({ info }) => {
       ''
     );
   return (
-    <div>
+    <div className='QAAnswer'>
       <p>{info.body}</p>
       {photos}
       <div className='QAFooter'>
-        <div>
+        <div className='userDate'>
           by {info.answerer_name}, {moment(info.date).format('MMMM DD, YYYY')} |
         </div>
         <div>
