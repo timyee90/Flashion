@@ -112,6 +112,7 @@ const AddReviewModal = (props) => {
         body: reviewInfo.body,
         recommend: recommended,
         name: reviewInfo.nickName,
+        photos: pictures,
         email: reviewInfo.email,
         characteristics: {
           size: {
@@ -224,6 +225,7 @@ const AddReviewModal = (props) => {
             </label>
             <ImageUploader
               withIcon={true}
+              withPreview={true}
               buttonText='Choose images'
               onChange={handlePictureUpload}
               imgExtension={['.jpg', '.gif', '.png', '.gif']}
