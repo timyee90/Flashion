@@ -45,7 +45,7 @@ const Helpful = (props) => {
     console.log('adding answer to question', props.id);
   };
   const reportModule = isReported ? (
-    <p>Reported</p>
+    <div>Reported</div>
   ) : (
     <a style={anchorStyle} onClick={handleReport}>
       Report
@@ -60,16 +60,16 @@ const Helpful = (props) => {
       reportModule
     );
   return (
-    <div>
+    <div className='helpfulContainer'>
+      <div>Helpful? </div>
       <div>
-        Helpful?{' '}
         <a style={anchorStyle} onClick={handleHelpfulClick}>
-          {' '}
           Yes
-        </a>{' '}
-        {count} |{'  '}
-        {module}
+        </a>
       </div>
+      <div>{count}</div>
+      <div>|</div>
+      <div>{module}</div>
     </div>
   );
 };

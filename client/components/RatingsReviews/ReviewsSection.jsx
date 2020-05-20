@@ -22,7 +22,7 @@ const ReviewsSection = (props) => {
 
   const handleLoadMoreReviews = () => {
     loadMoreReviews(!moreReviews);
-    let text = moreReviews ? 'SHOW MORE REVIEWS' : 'HIDE REVIEWS';
+    let text = moreReviews ? 'SHOW MORE REVIEWS' : 'SHOW LESS REVIEWS';
     changeToggleBtnText(text);
   };
 
@@ -31,7 +31,11 @@ const ReviewsSection = (props) => {
   });
 
   if (allReviews.length > 2) {
-    loadMoreReviewsBtn = <p onClick={handleLoadMoreReviews}>{toggleBtnText}</p>;
+    loadMoreReviewsBtn = (
+      <button className='btn bold fs32' onClick={handleLoadMoreReviews}>
+        {toggleBtnText}
+      </button>
+    );
   }
 
   let reviews = !moreReviews ? allReviews.slice(0, 2) : allReviews;
@@ -49,7 +53,7 @@ const ReviewsSection = (props) => {
 
   return (
     <div>
-      <div>
+      <div className='fs32 bold'>
         {props.count} reviews, sorted by{' '}
         <Select
           options={selectOptions}
@@ -58,8 +62,12 @@ const ReviewsSection = (props) => {
         />
       </div>
       <div>{reviews}</div>
-      {loadMoreReviewsBtn}
-      <button onClick={showModal}>ADD A REVIEW + </button>
+      <div className='reviewsBtnRow'>
+        {loadMoreReviewsBtn}
+        <button className='btn bold fs32' onClick={showModal}>
+          ADD A REVIEW +{' '}
+        </button>
+      </div>
       <AddReviewModal
         handleClose={hideModal}
         show={modalVisibility}

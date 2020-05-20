@@ -27,13 +27,17 @@ const Answer = ({ info }) => {
       ''
     );
   return (
-    <div>
+    <div className='QAAnswer'>
       <p>{info.body}</p>
       {photos}
-      <p>
-        by {info.answerer_name}, {moment(info.date).format('MMMM DD, YYYY')} |{' '}
-      </p>
-      <Helpful count={info.helpfulness} type={'answer'} id={info.id} />
+      <div className='QAFooter'>
+        <div className='userDate'>
+          by {info.answerer_name}, {moment(info.date).format('MMMM DD, YYYY')} |
+        </div>
+        <div>
+          <Helpful count={info.helpfulness} type={'answer'} id={info.id} />
+        </div>
+      </div>
     </div>
   );
 };

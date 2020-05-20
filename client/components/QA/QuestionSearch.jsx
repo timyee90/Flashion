@@ -15,12 +15,12 @@ const QuestionSearch = (props) => {
     <div>
       <form>
         <input
+          style={{ border: 0, width: '90%' }}
           type='text'
           value={search}
           onChange={handleChange}
           placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...'
-          className='questionSearch'
-        ></input>
+          className='questionSearch'></input>
       </form>
     </div>
   );

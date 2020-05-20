@@ -15,16 +15,16 @@ const RatingRow = (props) => {
   };
 
   return (
-    <tr key={props.rating}>
-      <td>
+    <tr key={props.rating} className='ratingRow'>
+      <td className='ratingRow-rating'>
         <a style={ratingStyle} value={props.rating} onClick={handleRatingClick}>
           {props.rating} stars
         </a>
       </td>
-      <td>
+      <td className='ratingRow-progressbar'>
         <ProgressBar percentage={props.percentage} />
       </td>
-      <td> {props.count} </td>
+      <td className='ratingRow-count'> {props.count} </td>
     </tr>
   );
 };

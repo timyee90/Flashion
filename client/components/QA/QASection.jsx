@@ -34,10 +34,12 @@ const QASection = (props) => {
   };
   const count = props.entries ? props.entries.length : 0;
   return (
-    <div className='widgetContainer qaSection'>
-      <div>
-        <h3>Questions & Answers</h3>
-        <QuestionSearch keywordSearch={handleQuestionSearch} />
+    <div className='QAContainer'>
+      <div className='QASection'>
+        <div className='sectionTitle'>Questions & Answers</div>
+        <div className='QASearch'>
+          <QuestionSearch keywordSearch={handleQuestionSearch} />
+        </div>
         {QAEntries}
         <QAButtons
           showMore={showMoreQuestions}
