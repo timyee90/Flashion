@@ -3,10 +3,9 @@ import React from 'react';
 const ProgressBar = (props) => {
   const progressBarStyle = {
     position: 'relative',
-    height: '5px',
+    height: '8px',
     width: '150px',
     borderRadius: '12.5%',
-    border: '1px solid black',
     backgroundColor: '#f0f0f0',
   };
   const fillerStyle = {

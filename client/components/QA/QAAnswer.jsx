@@ -30,10 +30,12 @@ const Answer = ({ info }) => {
     <div>
       <p>{info.body}</p>
       {photos}
-      <p>
-        by {info.answerer_name}, {moment(info.date).format('MMMM DD, YYYY')} |{' '}
-      </p>
-      <Helpful count={info.helpfulness} type={'answer'} id={info.id} />
+      <div className='QAFooter'>
+        <div>
+          by {info.answerer_name}, {moment(info.date).format('MMMM DD, YYYY')} |
+        </div>
+        <Helpful count={info.helpfulness} type={'answer'} id={info.id} />
+      </div>
     </div>
   );
 };

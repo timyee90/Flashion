@@ -113,33 +113,8 @@
   }
 }
 
-.ratingsContainer {
-  float: left;
-  width: 30%;
-}
-.reviewsContainer {
-  float: right;
-  width: 50%;
-}
-
 .review {
   border-bottom: 1px black solid;
-}
-
-.widgetContainer {
-  display: flex;
-  justify-content: center;
-}
-
-.questionSearch {
-  width: 70%;
-}
-
-.question {
-  float: left;
-}
-.helpful {
-  float: right;
 }
 
 .clickedRating {
@@ -210,4 +185,75 @@
 .warning {
   border: 1px solid red;
   border-radius: 15%;
+}
+
+.QAContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  h3 {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .QASearch {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+  }
+  .QASection {
+    width: 55%;
+  }
+}
+
+.QAEntry {
+  display: flex;
+  flex-direction: column;
+}
+
+.QAHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.QAFooter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+input:focus {
+  outline: none;
+}
+
+.QAQHelpful {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.AnswerSection {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.RRContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.RRSection {
+  width: 55%;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.reviewsContainer {
+  flex-grow: 1.7;
 }

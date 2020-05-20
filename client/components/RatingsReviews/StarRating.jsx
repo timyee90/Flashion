@@ -11,8 +11,9 @@ const StarRating = (props) => {
       <StarRatingModule
         rating={rating}
         numberOfStars={5}
+        starRatedColor={'gold'}
         starDimension={'16px'}
-        starSpacing={'3px'}
+        starSpacing={'1px'}
         changeRating={onChangeHandler}
       />
     </div>
