@@ -59,7 +59,10 @@ const ReviewsSection = (props) => {
       </div>
       <div>{reviews}</div>
       {loadMoreReviewsBtn}
-      <button onClick={showModal}>ADD A REVIEW + </button>
+      <br />
+      <button className='btn bold fs32' onClick={showModal}>
+        ADD A REVIEW +{' '}
+      </button>
       <AddReviewModal
         handleClose={hideModal}
         show={modalVisibility}

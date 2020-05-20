@@ -210,15 +210,17 @@
   flex-direction: column;
 }
 
-.QAHeader {
+@mixin inline-items {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
+
+.QAHeader {
+  @include inline-items;
+}
 .QAFooter {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  @include inline-items;
 }
 
 input:focus {
@@ -255,5 +257,43 @@ input:focus {
 }
 
 .reviewsContainer {
-  flex-grow: 1.7;
+  width: 65%;
+}
+
+.reviewHeader {
+  @include inline-items;
+  justify-content: space-between;
+}
+
+.ratingDisplay {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 5px;
+  .avg-rating {
+    font-size: 3em;
+  }
+
+  .avg-rating-star {
+  }
+}
+
+.helpfulContainer {
+  @include inline-items;
+  padding-left: 5px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.fs32 {
+  font-size: 1.2em;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 2px;
+  border: 1px solid black;
+  background-color: #ffffff;
 }

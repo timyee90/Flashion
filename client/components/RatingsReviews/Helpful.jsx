@@ -60,15 +60,15 @@ const Helpful = (props) => {
       reportModule
     );
   return (
-    <div>
+    <div className='helpfulContainer'>
+      <div>Helpful? </div>
       <div>
-        Helpful?{' '}
         <a style={anchorStyle} onClick={handleHelpfulClick}>
-          {' '}
           Yes
-        </a>{' '}
-        {count} |{'  '}
-        {module}
+        </a>
+      </div>
+      <div>
+        {count} |{module}
       </div>
     </div>
   );

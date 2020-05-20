@@ -34,7 +34,9 @@ const Answer = ({ info }) => {
         <div>
           by {info.answerer_name}, {moment(info.date).format('MMMM DD, YYYY')} |
         </div>
-        <Helpful count={info.helpfulness} type={'answer'} id={info.id} />
+        <div>
+          <Helpful count={info.helpfulness} type={'answer'} id={info.id} />
+        </div>
       </div>
     </div>
   );
