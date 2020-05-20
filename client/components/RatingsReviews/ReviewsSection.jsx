@@ -60,7 +60,11 @@ const ReviewsSection = (props) => {
       <div>{reviews}</div>
       {loadMoreReviewsBtn}
       <button onClick={showModal}>ADD A REVIEW + </button>
-      <AddReviewModal handleClose={hideModal} show={modalVisibility} />
+      <AddReviewModal
+        handleClose={hideModal}
+        show={modalVisibility}
+        product_id={props.product_id}
+      />
     </div>
   );
 };

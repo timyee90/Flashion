@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
+import ImageUploader from 'react-images-upload';
 import StarRating from './StarRating.jsx';
-import { characteristicsChart } from '../../../utils/computations';
+import CharacteristicsForm from './CharacteristicsForm.jsx';
+import { addReview } from '../../../utils/queries';
 
 const AddReviewModal = (props) => {
   const [rating, setRating] = useState(null);
+  const [pictures, addPicture] = useState([]);
   const [recommended, setRecommended] = useState(null);
-  const [summary, setSummary] = useState('');
-  const [body, setBody] = useState('');
   const [reviewInfo, setReviewInfo] = useState({
     summary: '',
     body: '',
     nickName: '',
     email: '',
   });
+  const [warnings, setWarning] = useState({});
+
   const [char, setChar] = useState({
     size: null,
     width: null,
@@ -22,7 +25,6 @@ const AddReviewModal = (props) => {
     fit: null,
   });
 
-  const [warning, setWarning] = useState([]);
   const showHideClassName = props.show
     ? 'modal modal-show'
     : 'modal modal-hide';
@@ -34,40 +36,126 @@ const AddReviewModal = (props) => {
     5: 'Great',
   };
   const checkIfMandatoryFieldsFilled = () => {
+    let isValid = true;
     for (let key in char) {
       if (!char[key]) {
-        return false;
+        setWarning((warnings) => {
+          return {
+            ...warnings,
+            [key]: true,
+          };
+        });
+        isValid = false;
       }
     }
-    if (
-      !rating ||
-      !recommended ||
-      reviewInfo.body.length === 0 ||
-      reviewInfo.nickName.length === 0 ||
-      reviewInfo.email.length === 0
-    ) {
-      return false;
+    if (!rating) {
+      setWarning((warnings) => {
+        return {
+          ...warnings,
+          rating: true,
+        };
+      });
+      isValid = false;
     }
-    return true;
+    if (!recommended) {
+      setWarning((warnings) => {
+        return {
+          ...warnings,
+          recommended: true,
+        };
+      });
+      isValid = false;
+    }
+    if (reviewInfo.body.length === 0) {
+      setWarning((warnings) => {
+        return {
+          ...warnings,
+          body: true,
+        };
+      });
+      isValid = false;
+    }
+    if (reviewInfo.nickName.length === 0) {
+      setWarning((warnings) => {
+        return {
+          ...warnings,
+          nickName: true,
+        };
+      });
+      isValid = false;
+    }
+    if (reviewInfo.email.length === 0) {
+      setWarning((warnings) => {
+        return {
+          ...warnings,
+          email: true,
+        };
+      });
+      isValid = false;
+    }
+    return isValid;
   };
+
   const handleTextChange = (e, field) => {
     setReviewInfo({
       ...reviewInfo,
       [field]: e.target.value,
     });
   };
+
   const handleSubmit = () => {
-    console.log(checkIfMandatoryFieldsFilled());
+    if (checkIfMandatoryFieldsFilled()) {
+      alert('Review has been submitted');
+      addReview(props.product_id, {
+        rating: rating,
+        summary: reviewInfo.summary,
+        body: reviewInfo.body,
+        recommend: recommended,
+        name: reviewInfo.nickName,
+        email: reviewInfo.email,
+        characteristics: {
+          size: {
+            value: char.size,
+          },
+          width: {
+            value: char.width,
+          },
+          comfort: {
+            value: char.comfort,
+          },
+          quality: {
+            value: char.quality,
+          },
+          length: {
+            value: char.length,
+          },
+          fit: {
+            value: char.fit,
+          },
+        },
+      });
+      props.handleClose();
+    } else {
+      alert('Please fill out mandatory fields');
+    }
   };
+
   const changeRating = (rating) => {
     setRating(rating);
   };
+
   const setRecommendation = (e) => {
     if (e.target.value === 'yes') {
       setRecommended(true);
     } else if (e.target.value === 'no') {
       setRecommended(false);
     }
+  };
+
+  const handlePictureUpload = (picture) => {
+    addPicture((prev) => {
+      return [...prev, picture];
+    });
   };
 
   const handleCharacteristics = (e, newChar) => {
@@ -77,52 +165,17 @@ const AddReviewModal = (props) => {
     });
   };
 
-  const characteristics = [
-    'size',
-    'width',
-    'comfort',
-    'quality',
-    'length',
-    'fit',
-  ].map((el) => {
-    return (
-      <tr>
-        <tr>
-          <td></td>
-          {[1, 2, 3, 4, 5].map((index) => {
-            return <td>{characteristicsChart[el][index]}</td>;
-          })}
-        </tr>
-        <tr>
-          <td>{el} </td>
-          {['1', '2', '3', '4', '5'].map((value) => {
-            return (
-              <td>
-                <label>
-                  {value}
-                  <input
-                    name={el}
-                    type='radio'
-                    value={value}
-                    onChange={(e) => handleCharacteristics(e, el)}></input>
-                </label>
-              </td>
-            );
-          })}
-        </tr>
-      </tr>
-    );
-  });
-
   return (
     <aside tag='aside' role='dialog'>
       <div className={showHideClassName}>
         <div className='modal-main'>
-          <p>{warning}</p>
+          <h3>Add Review</h3>
           <form>
-            <StarRating rating={rating} onChange={changeRating} />{' '}
-            <p>{ratingDescription[rating]}</p>
-            <label>
+            <div className={warnings.rating ? 'warning' : ''}>
+              <StarRating rating={rating} onChange={changeRating} />{' '}
+              <p>{ratingDescription[rating]}</p>
+            </div>
+            <label className={warnings.recommended ? 'warning' : ''}>
               Do you recommend this product?
               <label>
                 <input
@@ -144,7 +197,12 @@ const AddReviewModal = (props) => {
             <div className='addReviewField'>
               Characteristics:
               <table className='characteristics'>
-                <tbody>{characteristics}</tbody>
+                <tbody>
+                  <CharacteristicsForm
+                    handleCharacteristics={handleCharacteristics}
+                    warnings={warnings}
+                  />
+                </tbody>
               </table>
             </div>
             <label className='addReviewField'>
@@ -154,21 +212,37 @@ const AddReviewModal = (props) => {
                 value={reviewInfo.summary}
                 onChange={(e) => handleTextChange(e, 'summary')}></input>
             </label>
-            <label className='addReviewField'>
+            <label
+              className={
+                warnings.body ? 'addReviewField warning' : 'addReviewField'
+              }>
               Review Body:
               <input
                 type='text'
                 value={reviewInfo.body}
                 onChange={(e) => handleTextChange(e, 'body')}></input>
             </label>
-            <label className='addReviewField'>
+            <ImageUploader
+              withIcon={true}
+              buttonText='Choose images'
+              onChange={handlePictureUpload}
+              imgExtension={['.jpg', '.gif', '.png', '.gif']}
+              maxFileSize={5242880}
+            />
+            <label
+              className={
+                warnings.nickName ? 'addReviewField warning' : 'addReviewField'
+              }>
               Nickname:
               <input
                 type='text'
                 value={reviewInfo.nickName}
                 onChange={(e) => handleTextChange(e, 'nickName')}></input>
             </label>
-            <label className='addReviewField'>
+            <label
+              className={
+                warnings.email ? 'addReviewField warning' : 'addReviewField'
+              }>
               Email:
               <input
                 type='email'

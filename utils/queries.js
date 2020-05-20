@@ -210,10 +210,13 @@ export const getReviewMeta = (product_id) => {
 
 // Should add review to single product CHECK API DOC FOR post PARAMS
 export const addReview = (product_id, post) => {
-  return axios
-    .post(`${baseUrl}/reviews/${product_id}/`, post)
-    .then(({ data }) => {
-      return data;
+  return axios({
+    url: `${baseUrl}/reviews/${product_id}/`,
+    method: 'post',
+    data: post,
+  })
+    .then(() => {
+      console.log('Successfully posted review');
     })
     .catch(handleError);
 };
