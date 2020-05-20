@@ -22,7 +22,7 @@ const ReviewsSection = (props) => {
 
   const handleLoadMoreReviews = () => {
     loadMoreReviews(!moreReviews);
-    let text = moreReviews ? 'SHOW MORE REVIEWS' : 'HIDE REVIEWS';
+    let text = moreReviews ? 'SHOW MORE REVIEWS' : 'SHOW LESS REVIEWS';
     changeToggleBtnText(text);
   };
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ImageUploader from 'react-images-upload';
+import EmailValidator from 'email-validator';
 import StarRating from './StarRating.jsx';
 import CharacteristicsForm from './CharacteristicsForm.jsx';
 import { addReview } from '../../../utils/queries';
@@ -66,7 +67,7 @@ const AddReviewModal = (props) => {
       });
       isValid = false;
     }
-    if (reviewInfo.body.length === 0) {
+    if (reviewInfo.body.length < 50) {
       setWarning((warnings) => {
         return {
           ...warnings,
@@ -84,7 +85,7 @@ const AddReviewModal = (props) => {
       });
       isValid = false;
     }
-    if (reviewInfo.email.length === 0) {
+    if (reviewInfo.email.length === 0 || !EmailValidator(review.email)) {
       setWarning((warnings) => {
         return {
           ...warnings,
@@ -170,14 +171,38 @@ const AddReviewModal = (props) => {
     <aside tag='aside' role='dialog'>
       <div className={showHideClassName}>
         <div className='modal-main'>
-          <h3>Add Review</h3>
+          <div className='bold modalTitle'>Write Your Review</div>
+          <div className='bold modalSubtitle'>About the product</div>
           <form>
+            <label className='addReviewField'>
+              <div>Review Summary:</div>
+              <input
+                type='text'
+                value={reviewInfo.summary}
+                placeholder='Example: Best purchase ever!'
+                onChange={(e) => handleTextChange(e, 'summary')}></input>
+            </label>
             <div className={warnings.rating ? 'warning' : ''}>
+              <div>Your rating: </div>
               <StarRating rating={rating} onChange={changeRating} />{' '}
               <p>{ratingDescription[rating]}</p>
             </div>
+            <label
+              className={
+                warnings.body
+                  ? 'addReviewField warning body'
+                  : 'addReviewField body'
+              }>
+              <div>Review Body:</div>
+              <input
+                className='textInput body'
+                type='text'
+                value={reviewInfo.body}
+                placeholder='Why did you like the product or not'
+                onChange={(e) => handleTextChange(e, 'body')}></input>
+            </label>
             <label className={warnings.recommended ? 'warning' : ''}>
-              Do you recommend this product?
+              <div>Do you recommend this product?</div>
               <label>
                 <input
                   name='recommend'
@@ -206,22 +231,28 @@ const AddReviewModal = (props) => {
                 </tbody>
               </table>
             </div>
-            <label className='addReviewField'>
-              Review Summary:
+
+            <label
+              className={
+                warnings.nickName ? 'addReviewField warning' : 'addReviewField'
+              }>
+              <div>Nickname:</div>
               <input
                 type='text'
-                value={reviewInfo.summary}
-                onChange={(e) => handleTextChange(e, 'summary')}></input>
+                value={reviewInfo.nickName}
+                placeholder='Example: jackson11!'
+                onChange={(e) => handleTextChange(e, 'nickName')}></input>
             </label>
             <label
               className={
-                warnings.body ? 'addReviewField warning' : 'addReviewField'
+                warnings.email ? 'addReviewField warning' : 'addReviewField'
               }>
-              Review Body:
+              <div>Email:</div>
               <input
-                type='text'
-                value={reviewInfo.body}
-                onChange={(e) => handleTextChange(e, 'body')}></input>
+                type='email'
+                placeholder='Example: jackson11@email.com'
+                value={reviewInfo.email}
+                onChange={(e) => handleTextChange(e, 'email')}></input>
             </label>
             <ImageUploader
               withIcon={true}
@@ -231,32 +262,15 @@ const AddReviewModal = (props) => {
               imgExtension={['.jpg', '.gif', '.png', '.gif']}
               maxFileSize={5242880}
             />
-            <label
-              className={
-                warnings.nickName ? 'addReviewField warning' : 'addReviewField'
-              }>
-              Nickname:
-              <input
-                type='text'
-                value={reviewInfo.nickName}
-                onChange={(e) => handleTextChange(e, 'nickName')}></input>
-            </label>
-            <label
-              className={
-                warnings.email ? 'addReviewField warning' : 'addReviewField'
-              }>
-              Email:
-              <input
-                type='email'
-                value={reviewInfo.email}
-                onChange={(e) => handleTextChange(e, 'email')}></input>
-            </label>
             <input
+              className='btn fs32 bold'
               type='button'
               onClick={handleSubmit}
               value='Add Review'></input>
           </form>
-          <button onClick={props.handleClose}>Close</button>
+          <button className='btn fs32 bold' onClick={props.handleClose}>
+            Close
+          </button>
         </div>
       </div>
     </aside>
