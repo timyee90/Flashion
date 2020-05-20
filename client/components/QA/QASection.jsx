@@ -29,9 +29,7 @@ const QASection = (props) => {
             return <QAEntry key={index} qaInfo={qa} />;
           });
   const QAEntries = allQAEntries.slice(0, questionsShown);
-  console.log(QAEntries);
   const handleQuestionSearch = (keyword) => {
-    console.log(keyword);
     setKeywordSearch(keyword);
   };
   const count = props.entries ? props.entries.length : 0;

@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import Helpful from './Helpful.jsx';
+import Helpful from '../RatingsReviews/Helpful.jsx';
 
 const Answer = ({ info }) => {
   const photos =
@@ -17,8 +17,7 @@ const Answer = ({ info }) => {
                 objectFit: 'contain',
                 backgroundColor: '#C0C0C0',
                 border: '1px solid black',
-              }}
-            >
+              }}>
               <img src={photo} style={{ maxHeight: '100px' }} />
             </div>
           );

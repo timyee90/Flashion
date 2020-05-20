@@ -31,3 +31,54 @@ export const filterReviews = (reviews, ratingSort) => {
     return [...reviews];
   }
 };
+
+export const characteristicsChart = {
+  size: [
+    null,
+    'A size too small',
+    '1/2 a size too small',
+    'Perfect',
+    '1/2 a size too big',
+    'A size too wide',
+  ],
+  width: [
+    null,
+    'Too narrow',
+    'Slightly narrow',
+    'Perfect',
+    'Slightly wide',
+    'Too wide',
+  ],
+  comfort: [
+    null,
+    'Uncomfortable',
+    'Slightly uncomfortable',
+    'Ok',
+    'Comfortable',
+    'Perfect',
+  ],
+  quality: [
+    null,
+    'Poor',
+    'Below average',
+    'What I expected',
+    'Pretty great',
+    'Perfect',
+  ],
+  length: [
+    null,
+    'Runs short',
+    'Runs slightly short',
+    'Perfect',
+    'Runs slightly long',
+    'Runs long',
+  ],
+  fit: [
+    null,
+    'Runs tight',
+    'Runs slightly short',
+    'Perfect',
+    'Runs slightly long',
+    'Runs long',
+  ],
+};

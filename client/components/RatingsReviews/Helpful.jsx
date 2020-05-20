@@ -6,7 +6,7 @@ import {
   reportAnswer,
   reportQuestion,
   reportReview,
-} from '../../utils/queries';
+} from '.././../../utils/queries';
 
 const Helpful = (props) => {
   const [isReported, report] = useState(false);
