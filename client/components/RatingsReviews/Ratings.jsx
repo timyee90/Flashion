@@ -23,7 +23,9 @@ const Ratings = (props) => {
   };
   const clearFilterBtn = showClearFilterBtn ? (
     <div>
-      <button onClick={handleClear}>CLEAR FILTER</button>
+      <button className='btn' onClick={handleClear}>
+        CLEAR FILTER
+      </button>
     </div>
   ) : (
     ''
@@ -44,7 +46,11 @@ const Ratings = (props) => {
     }
     return (
       <RatingRow
+<<<<<<< HEAD:client/components/Ratings.jsx
         key={id}
+=======
+        key={rating}
+>>>>>>> 5add541a742b5eb656256b8ab7999c9676751483:client/components/RatingsReviews/Ratings.jsx
         rating={rating}
         value={rating}
         changeRatingFilter={changeRatingFilter}
@@ -58,12 +64,14 @@ const Ratings = (props) => {
     : 0;
   return (
     <div>
-      <h1>{props.averageRating.toFixed(1)}</h1>
-      <div>
-        <StarRating rating={props.averageRating} />
+      <div className='ratingDisplay'>
+        <div className='avg-rating'>{props.averageRating.toFixed(1)}</div>
+        <div className='avg-rating-star'>
+          <StarRating rating={props.averageRating} />
+        </div>
       </div>
       <p>{recommendedPerc}% of reviews recommend this product</p>
-      <table>
+      <table className='ratingRows'>
         <tbody>{starRows}</tbody>
       </table>
       {clearFilterBtn}

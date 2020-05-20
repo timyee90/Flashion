@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import QASection from '../components/QASection.jsx';
+import QASection from '../components/QA/QASection.jsx';
 import { getQAData } from '../actions/qaAction.js';
 
 const mapDispatchToProps = (dispatch) => {

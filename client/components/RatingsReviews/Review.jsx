@@ -10,15 +10,17 @@ const Review = ({ review }) => {
   const response = review.response ? <div>{review.response}</div> : '';
   return (
     <div className='review'>
-      <StarRating rating={review.rating} />
-      <h3>{review.summary}</h3>
-      <p>
-        {review.reviewer_name} {moment(review.date).format('MMMM DD, YYYY')}
-      </p>
+      <div className='reviewHeader'>
+        <StarRating rating={review.rating} />
+        <div>
+          {review.reviewer_name}, {moment(review.date).format('MMMM DD, YYYY')}
+        </div>
+      </div>
+      <div className='bold fs32'>{review.summary}</div>
       <p>{review.body}</p>
       <div>{recommended}</div>
       <div className='response'>
-        <p>Response:</p>
+        <div className='bold'>Response:</div>
         <div>{response}</div>
       </div>
       <div>
