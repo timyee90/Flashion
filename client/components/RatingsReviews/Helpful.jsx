@@ -42,7 +42,7 @@ const Helpful = (props) => {
   };
 
   const handleAddAnswer = () => {
-    console.log('adding answer to question', props.id);
+    props.showModal();
   };
   const reportModule = isReported ? (
     <div>Reported</div>

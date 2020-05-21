@@ -85,7 +85,10 @@ const AddReviewModal = (props) => {
       });
       isValid = false;
     }
-    if (reviewInfo.email.length === 0 || !EmailValidator(review.email)) {
+    if (
+      reviewInfo.email.length === 0 ||
+      !EmailValidator.validate(review.email)
+    ) {
       setWarning((warnings) => {
         return {
           ...warnings,

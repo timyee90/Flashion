@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import EmailValidator from 'email-validator';
 
-const AddQuestionModal = (props) => {
+const AddAnswerModal = (props) => {
   const [warnings, setWarning] = useState({});
   const [info, setInfo] = useState({
-    question: '',
+    answer: '',
     nickName: '',
     email: '',
   });
@@ -14,7 +14,7 @@ const AddQuestionModal = (props) => {
 
   const handleSubmit = () => {
     if (checkIfMandatoryFieldsFilled()) {
-      alert('Question has been submitted! Thank you :)');
+      alert('Answer has been submitted! Thank you :)');
       props.handleClose();
     } else {
       alert('Please fill out mandatory fields');
@@ -29,11 +29,11 @@ const AddQuestionModal = (props) => {
 
   const checkIfMandatoryFieldsFilled = () => {
     let isValid = true;
-    if (info.question.length === 0) {
+    if (info.answer.length === 0) {
       setWarning((warnings) => {
         return {
           ...warnings,
-          question: true,
+          answer: true,
         };
       });
       isValid = false;
@@ -75,14 +75,14 @@ const AddQuestionModal = (props) => {
           </label>
           <label
             className={
-              warnings.question ? 'addReviewField warning' : 'addReviewField'
+              warnings.answer ? 'addReviewField warning' : 'addReviewField'
             }>
-            <div>Question:</div>
+            <div>Answer:</div>
             <input
               type='text'
-              value={info.question}
+              value={info.answer}
               placeholder='Example: What is the texture like?'
-              onChange={(e) => handleTextChange(e, 'question')}></input>
+              onChange={(e) => handleTextChange(e, 'answer')}></input>
           </label>
           <label
             className={
@@ -99,7 +99,7 @@ const AddQuestionModal = (props) => {
             className='bottom-btn fs32 bold'
             type='button'
             onClick={handleSubmit}
-            value='Add Question'></input>
+            value='Add Answer'></input>
         </form>
         <button className='bottom-btn fs32 bold' onClick={props.handleClose}>
           Close
@@ -109,4 +109,4 @@ const AddQuestionModal = (props) => {
   );
 };
 
-export default AddQuestionModal;
+export default AddAnswerModal;

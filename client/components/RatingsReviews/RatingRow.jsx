@@ -7,6 +7,7 @@ const RatingRow = (props) => {
   const ratingStyle = {
     cursor: 'pointer',
     textDecorationLine: 'underLine',
+    overflowWrap: 'break-word',
   };
 
   const handleRatingClick = (e) => {
