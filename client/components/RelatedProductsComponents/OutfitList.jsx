@@ -18,7 +18,7 @@ const OutfitList = (props) => {
       .map((item) => {
         return item[0].id;
       })
-      .indexOf(id);
+      .indexOf(parseInt(id));
     if (index > -1) tempOutfit.splice(index, 1);
     setOutfit(tempOutfit);
   };

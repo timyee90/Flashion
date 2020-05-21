@@ -8,7 +8,6 @@ const OutfitListEntry = ({
   style,
   rating,
   setProductId,
-  currentId,
   remove,
 }) => {
   let url =
@@ -41,7 +40,7 @@ const OutfitListEntry = ({
       ></img>
       <button
         onClick={() => {
-          remove(currentId);
+          remove(id);
         }}
         type='button'
         className='btn btn-default btn-sm btn-overlap'
