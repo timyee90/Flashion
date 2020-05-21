@@ -15,36 +15,55 @@ class ProductCard extends React.Component {
       currentStyle: {},
       styles: [],
       currentImage: '',
+      currentImageIndex: 0,
       images: [],
       currentSize: '',
     };
 
     this.changeCurrentStyle = this.changeCurrentStyle.bind(this);
     this.changeCurrentSize = this.changeCurrentSize.bind(this);
+    this.changeToNextPic = this.changeToNextPic.bind(this);
+    this.changeToPrevPic = this.changeToPrevPic.bind(this);
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.stylesInfo !== prevProps.stylesInfo) {
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.productInfo !== prevProps.productInfo) {
       this.setState({
         productName: this.props.productInfo.name,
         category: this.props.productInfo.category,
+      });
+    } else if (this.props.stylesInfo !== prevProps.stylesInfo) {
+      this.setState({
         price: this.props.stylesInfo.results[0].original_price,
         salePrice: this.props.stylesInfo.results[0].sale_price,
         currentStyle: this.props.stylesInfo.results[0],
         styles: this.props.stylesInfo.results,
-        currentImage: this.props.stylesInfo.results[0].photos[0].url,
+        currentImage: this.props.stylesInfo.results[0].photos[
+          this.state.currentImageIndex
+        ].url,
         images: this.props.stylesInfo.results[0].photos,
+      });
+    } else if (this.state.currentImageIndex !== prevState.currentImageIndex) {
+      this.setState({
+        currentImage: this.props.stylesInfo.results[0].photos[
+          this.state.currentImageIndex
+        ].url,
       });
     }
   }
 
   changeCurrentStyle(obj) {
-    this.setState({
-      currentStyle: obj,
-      currentImage: obj.photos[0].url,
-      price: obj.original_price,
-      salePrice: obj.sale_price,
-    });
+    console.log('BEFORE SET STATE', this.state.images);
+    this.setState(
+      {
+        currentStyle: obj,
+        currentImage: obj.photos[this.state.currentImageIndex].url,
+        price: obj.original_price,
+        salePrice: obj.sale_price,
+        images: obj.photos,
+      },
+      () => console.log(this.state.images)
+    );
   }
 
   changeCurrentSize(size) {
@@ -53,11 +72,41 @@ class ProductCard extends React.Component {
     });
   }
 
+  changeToNextPic() {
+    if (this.state.currentImageIndex === this.state.images.length - 1) {
+      this.setState({
+        currentImageIndex: 0,
+      });
+    } else {
+      this.setState({
+        currentImageIndex: this.state.currentImageIndex + 1,
+      });
+    }
+  }
+
+  changeToPrevPic() {
+    if (this.state.currentImageIndex === 0) {
+      this.setState({
+        currentImageIndex: this.state.images.length - 1,
+      });
+    } else {
+      this.setState({
+        currentImageIndex: this.state.currentImageIndex - 1,
+      });
+    }
+  }
+
   render() {
     return (
       <div className='TopInfo'>
         <div className='ImageGallery'>
-          <ImageGallery display={this.state.currentImage} />
+          <ImageGallery
+            display={this.state.currentImage}
+            displayIndex={this.state.currentImageIndex}
+            images={this.state.images}
+            nextImage={this.changeToNextPic}
+            prevImage={this.changeToPrevPic}
+          />
         </div>
         <div className='InfoStyleEvents'>
           {this.props.rating ? (
@@ -65,12 +114,13 @@ class ProductCard extends React.Component {
               <StarRatingModule
                 rating={this.props.rating}
                 numberOfStars={5}
-                starDimension={'12px'}
+                starDimension={'16px'}
                 starSpacing={'1px'}
+                starRatedColor={'Gold'}
               />
 
-              <a style={{ fontSize: '12px', marginLeft: '2px', color: 'gray' }}>
-                {' Read all reviews'}
+              <a style={{ fontSize: '16px', marginLeft: '5px', color: 'gray' }}>
+                {'Read all reviews'}
               </a>
             </div>
           ) : (

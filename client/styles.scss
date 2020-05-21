@@ -15,17 +15,82 @@
     justify-content: space-evenly;
 
     .ImageGallery {
+      display: flex;
       width: 65%;
       height: 100%;
       background-color: lightgray;
       margin-right: 15px;
 
-      #MainImage {
-        display: block;
-        width: 80%;
+      .Gallery {
+        display: flex;
+        width: 100%;
         height: 100%;
-        object-fit: contain;
-        margin: auto;
+        background-color: lightgray;
+        flex-direction: row;
+
+        .sideImages {
+          order: 0;
+          display: flex;
+          flex-direction: column;
+          margin-top: 10px;
+          width: 8%;
+          height: 8%;
+
+          .sideImage {
+            margin: 10px 10px 5px 20px;
+          }
+        }
+
+        #previousPicButton {
+          order: 1;
+          width: 5%;
+          height: 5%;
+          align-self: center;
+          border-radius: 50%;
+          background-color: transparent;
+          font-size: large;
+          margin-left: 25px;
+          border: none;
+          outline: none;
+        }
+
+        #previousPicButton:hover {
+          background-color: rgba($color: white, $alpha: 0.4);
+        }
+
+        #previousPicButton:active {
+          background-color: rgba($color: white, $alpha: 0.6);
+        }
+
+        #MainImage {
+          order: 2;
+          display: block;
+          width: 75%;
+          height: 100%;
+          object-fit: contain;
+          margin: auto;
+        }
+
+        #nextPicButton {
+          order: 3;
+          width: 5%;
+          height: 5%;
+          align-self: center;
+          border-radius: 50%;
+          margin-right: 8px;
+          background-color: transparent;
+          font-size: large;
+          border: none;
+          outline: none;
+        }
+
+        #nextPicButton:hover {
+          background-color: rgba($color: white, $alpha: 0.4);
+        }
+
+        #nextPicButton:active {
+          background-color: rgba($color: white, $alpha: 0.6);
+        }
       }
     }
 
@@ -35,17 +100,28 @@
       width: 35%;
       height: 100%;
       margin-right: 25px;
-      justify-content: center;
+      justify-content: space-evenly;
 
-      .NameAndPrice {
+      a:hover {
+        cursor: pointer;
+      }
+
+      .NamePrice {
         order: 0;
         width: 100%;
-        height: 33%;
+
+        .NameAndSocial {
+          margin-bottom: 10px;
+
+          img:hover {
+            cursor: pointer;
+          }
+        }
       }
 
       .StyleSelector {
         order: 1;
-        width: 100%;
+        width: 90%;
         flex-direction: row wrap;
 
         #StyleImage {
@@ -63,7 +139,7 @@
 
       .SizeQuantityCart {
         order: 2;
-        width: 100%;
+        width: 90%;
 
         #sizes {
           width: 60%;
@@ -103,12 +179,12 @@
   .BottomDescription {
     display: flex;
     align-self: flex-end;
+    justify-content: center;
     width: 75%;
     height: 20%;
-    justify-content: center;
 
     #description {
-      justify-self: center;
+      justify-content: center;
     }
   }
 }
