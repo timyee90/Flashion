@@ -54,6 +54,7 @@ const Ratings = (props) => {
       />
     );
   });
+  const characteristics = props.characteristics;
   const recommendedPerc = props.recommendedPercentage
     ? props.recommendedPercentage.toFixed(1)
     : 0;
@@ -70,8 +71,16 @@ const Ratings = (props) => {
         <tbody>{starRows}</tbody>
       </table>
       {clearFilterBtn}
-      <BarRatingGauge category='size' />
-      <BarRatingGauge category='comfort' />
+      <BarRatingGauge category='Fit' value={characteristics.Fit.value} />
+      <BarRatingGauge category='Length' value={characteristics.Length.value} />
+      <BarRatingGauge
+        category='Comfort'
+        value={characteristics.Comfort.value}
+      />
+      <BarRatingGauge
+        category='Quality'
+        value={characteristics.Quality.value}
+      />
     </div>
   );
 };

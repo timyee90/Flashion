@@ -50,7 +50,7 @@ const ReviewsSection = (props) => {
   const hideModal = () => {
     setModalVisibility(false);
   };
-
+  const productName = props.product_name ? props.product_name : '';
   return (
     <div>
       <div className='fs32 bold'>
@@ -72,6 +72,7 @@ const ReviewsSection = (props) => {
         handleClose={hideModal}
         show={modalVisibility}
         product_id={props.product_id}
+        product_name={productName}
       />
     </div>
   );

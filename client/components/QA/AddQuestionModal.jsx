@@ -68,6 +68,7 @@ const AddQuestionModal = (props) => {
             }>
             <div>Nickname:</div>
             <input
+              className='singleline-input'
               type='text'
               value={info.nickName}
               placeholder='Example: jackson11!'
@@ -79,6 +80,7 @@ const AddQuestionModal = (props) => {
             }>
             <div>Question:</div>
             <input
+              className='singleline-input'
               type='text'
               value={info.question}
               placeholder='Example: What is the texture like?'
@@ -90,20 +92,23 @@ const AddQuestionModal = (props) => {
             }>
             <div>Email:</div>
             <input
+              className='singleline-input'
               type='email'
               placeholder='Example: jackson11@email.com'
               value={info.email}
               onChange={(e) => handleTextChange(e, 'email')}></input>
           </label>
+        </form>
+        <div className='modal-btns'>
           <input
             className='bottom-btn fs32 bold'
             type='button'
             onClick={handleSubmit}
             value='Add Question'></input>
-        </form>
-        <button className='bottom-btn fs32 bold' onClick={props.handleClose}>
-          Close
-        </button>
+          <button className='bottom-btn fs32 bold' onClick={props.handleClose}>
+            Close
+          </button>
+        </div>
       </div>
     </div>
   );

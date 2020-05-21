@@ -10,12 +10,14 @@ import {
 
 const Helpful = (props) => {
   const [isReported, report] = useState(false);
+  const [isHelpful, helpful] = useState(false);
   const anchorStyle = {
     cursor: 'pointer',
     textDecorationLine: 'underLine',
   };
-  const count = props.count > 0 ? ` (${props.count})` : '0';
-
+  const count =
+    props.count > 0 ? ` (${props.count + (isHelpful ? 1 : 0)})` : '0';
+  const showHelpful = isHelpful ? 'Voted' : 'Yes';
   const handleReport = () => {
     if (props.type === 'answer') {
       reportAnswer(props.id);
@@ -24,20 +26,25 @@ const Helpful = (props) => {
     if (props.type === 'question') {
       reportQuestion(props.id);
     }
-    if (props.type === 'review') {
+    if (props.type === 'reviews') {
       reportReview(props.id);
     }
   };
 
   const handleHelpfulClick = () => {
-    if (props.type === 'answer') {
-      markAnswerHelpful(props.id);
-    }
-    if (props.type === 'question') {
-      markQuestionHelpful(props.id);
-    }
-    if (props.type === 'review') {
-      markReviewHelpful(props.id);
+    if (isHelpful === false) {
+      if (props.type === 'answer') {
+        markAnswerHelpful(props.id);
+        helpful(true);
+      }
+      if (props.type === 'question') {
+        markQuestionHelpful(props.id);
+        helpful(true);
+      }
+      if (props.type === 'reviews') {
+        markReviewHelpful(props.id);
+        helpful(true);
+      }
     }
   };
 
@@ -64,7 +71,7 @@ const Helpful = (props) => {
       <div>Helpful? </div>
       <div>
         <a style={anchorStyle} onClick={handleHelpfulClick}>
-          Yes
+          {showHelpful}
         </a>
       </div>
       <div>{count}</div>

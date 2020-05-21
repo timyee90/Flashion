@@ -2,6 +2,7 @@ import {
   CHANGE_RATING_FILTER,
   GET_REVIEWS_META_DATA,
   CLEAR_RATING_FILTER,
+  GET_FULL_META,
 } from '../constants/ratingsReviewsTypes.js';
 import { getReviewMeta } from '../../utils/queries';
 
@@ -16,6 +17,10 @@ export const getReviewsMetaData = (product_id) => {
   return (dispatch) => {
     getReviewMeta(product_id)
       .then((data) => {
+        dispatch({
+          type: GET_FULL_META,
+          payload: data,
+        });
         const total = Object.values(data.ratings).reduce((acc, curr) => {
           acc += curr;
           return acc;

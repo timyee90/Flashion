@@ -12,6 +12,7 @@ const mapStateToProps = (state) => {
     reviews: state.reviews.reviews,
     product_id: state.app.product_id,
     count: state.reviews.count,
+    product_name: state.productInfo.productInfo.name,
   };
 };
 
