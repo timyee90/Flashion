@@ -34,7 +34,7 @@ const Ratings = (props) => {
     props.changeRatingFilter(rating);
   };
 
-  const starRows = ['5', '4', '3', '2', '1'].map((rating) => {
+  const starRows = ['5', '4', '3', '2', '1'].map((rating, id) => {
     let ratingPercentage = props.reviewsMeta
       ? props.reviewsMeta[rating].percent
       : 0;
