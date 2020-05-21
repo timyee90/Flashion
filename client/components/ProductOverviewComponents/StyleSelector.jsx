@@ -8,11 +8,12 @@ function StyleSelector(props) {
         <em>Style > {props.currentStyle.name}</em>
       </p>
       <div id='StyleImages'>
-        {props.styles.map((style) => {
+        {props.styles.map((style, i) => {
           return (
             <StyleImage
               style={style}
               changeCurrentStyle={props.changeCurrentStyle}
+              key={i}
             />
           );
         })}

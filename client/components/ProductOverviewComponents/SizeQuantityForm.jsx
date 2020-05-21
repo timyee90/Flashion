@@ -4,13 +4,19 @@ function SizeQuantityForm(props) {
   const sizes = [];
 
   for (let key in props.style.skus) {
-    sizes.push(key);
+    if (props.style.skus[key] > 0) {
+      sizes.push(key);
+    } else {
+      sizes.push('OUT OF STOCK');
+    }
   }
 
   function getQuantities() {
     function howMany() {
       if (props.style.skus[props.currentSize] < 15) {
         return props.style.skus[props.currentSize];
+      } else if (props.style.skus[props.currentSize] === undefined) {
+        return '-';
       } else {
         return 15;
       }
@@ -33,20 +39,32 @@ function SizeQuantityForm(props) {
         }}
       >
         <option value=''>SELECT SIZE</option>
-        {sizes.map((size) => {
-          return <option value={size}>{size}</option>;
+        {sizes.map((size, i) => {
+          return (
+            <option value={size} key={i}>
+              {size}
+            </option>
+          );
         })}
       </select>
       <select id='quantities'>
         {props.currentSize ? (
-          getQuantities().map((num) => {
-            return <option value={num}>{num}</option>;
+          getQuantities().map((num, i) => {
+            return (
+              <option value={num} key={i}>
+                {num}
+              </option>
+            );
           })
         ) : (
           <option value='-'>-</option>
         )}
       </select>
-      <button id='addToCart'>Add to Cart</button>
+      {props.currentSize !== 'OUT OF STOCK' ? (
+        <button id='addToCart'>Add to Cart</button>
+      ) : (
+        ''
+      )}
     </div>
   );
 }
