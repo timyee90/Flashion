@@ -7,22 +7,26 @@ const Review = ({ review }) => {
   // the following below will need to be revised for styling
   const recommended =
     review.recommend > 0 ? <p>&#10004; I recommend this product</p> : '';
-  const response = review.response ? <div>{review.response}</div> : '';
+  const response = review.response ? (
+    review.response.length > 3 ? (
+      <div className='response'>
+        <div className='bold'>Response:</div>
+        <div>{review.response}</div>
+      </div>
+    ) : null
+  ) : null;
   return (
     <div className='review'>
       <div className='reviewHeader'>
         <StarRating rating={review.rating} />
-        <div>
+        <div className='userDate'>
           {review.reviewer_name}, {moment(review.date).format('MMMM DD, YYYY')}
         </div>
       </div>
       <div className='bold fs32'>{review.summary}</div>
       <p>{review.body}</p>
       <div>{recommended}</div>
-      <div className='response'>
-        <div className='bold'>Response:</div>
-        <div>{response}</div>
-      </div>
+      {response}
       <div>
         <Helpful
           count={review.helpfulness}
