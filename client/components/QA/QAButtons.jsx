@@ -4,7 +4,7 @@ const QAButtons = (props) => {
   const showMoreBtn =
     props.count > 2 && props.currentlyShown < props.count ? (
       <input
-        className='btn bold fs32'
+        className='bottom-btn bold fs32'
         type='button'
         value='MORE ANSWERED QUESTIONS'
         onClick={props.showMore}></input>
@@ -15,7 +15,8 @@ const QAButtons = (props) => {
     <div>
       {showMoreBtn}
       <input
-        className='btn bold fs32'
+        onClick={props.showModal}
+        className='bottom-btn bold fs32'
         type='button'
         value='ADD A QUESTION + '></input>
     </div>

@@ -32,7 +32,7 @@ const ReviewsSection = (props) => {
 
   if (allReviews.length > 2) {
     loadMoreReviewsBtn = (
-      <button className='btn bold fs32' onClick={handleLoadMoreReviews}>
+      <button className='bottom-btn bold fs32' onClick={handleLoadMoreReviews}>
         {toggleBtnText}
       </button>
     );
@@ -64,7 +64,7 @@ const ReviewsSection = (props) => {
       <div>{reviews}</div>
       <div className='reviewsBtnRow'>
         {loadMoreReviewsBtn}
-        <button className='btn bold fs32' onClick={showModal}>
+        <button className='bottom-btn bold fs32' onClick={showModal}>
           ADD A REVIEW +{' '}
         </button>
       </div>

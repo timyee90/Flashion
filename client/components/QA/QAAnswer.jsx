@@ -5,7 +5,7 @@ import Helpful from '../RatingsReviews/Helpful.jsx';
 const Answer = ({ info }) => {
   const photos =
     info.photos.length > 0 ? (
-      <div>
+      <div className='QAPhotos'>
         {info.photos.map((photo, index) => {
           return (
             <div

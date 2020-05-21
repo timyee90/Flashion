@@ -263,12 +263,12 @@ const AddReviewModal = (props) => {
               maxFileSize={5242880}
             />
             <input
-              className='btn fs32 bold'
+              className='bottom-btn fs32 bold'
               type='button'
               onClick={handleSubmit}
               value='Add Review'></input>
           </form>
-          <button className='btn fs32 bold' onClick={props.handleClose}>
+          <button className='bottom-btn fs32 bold' onClick={props.handleClose}>
             Close
           </button>
         </div>

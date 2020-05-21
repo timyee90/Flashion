@@ -17,13 +17,12 @@ const Ratings = (props) => {
   }, [props.ratingsFilter]);
 
   const handleClear = (e) => {
-    console.log('clear');
     props.clearRatingFilter();
     toggleClearFilterBtn(false);
   };
   const clearFilterBtn = showClearFilterBtn ? (
     <div>
-      <button className='btn' onClick={handleClear}>
+      <button className='bottom-btn bold' onClick={handleClear}>
         CLEAR FILTER
       </button>
     </div>
@@ -61,7 +60,7 @@ const Ratings = (props) => {
   return (
     <div>
       <div className='ratingDisplay'>
-        <div className='avg-rating'>{props.averageRating.toFixed(1)}</div>
+        <div className='avg-rating bold'>{props.averageRating.toFixed(1)}</div>
         <div className='avg-rating-star'>
           <StarRating rating={props.averageRating} />
         </div>

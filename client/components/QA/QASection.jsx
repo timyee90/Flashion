@@ -2,14 +2,22 @@ import React, { useEffect, useState } from 'react';
 import QuestionSearch from './QuestionSearch.jsx';
 import QAEntry from './QAEntry.jsx';
 import QAButtons from './QAButtons.jsx';
+import AddQuestionModal from './AddQuestionModal.jsx';
 
 const QASection = (props) => {
-  const [areQuestionsHidden, toggleHideQuestions] = useState(true);
   const [keywordSearch, setKeywordSearch] = useState(0);
   const [questionsShown, showMore] = useState(2);
+  const [modalVisibility, setModalVisibility] = useState(false);
 
   const showMoreQuestions = () => {
     showMore((prev) => prev + 2);
+  };
+
+  const showModal = () => {
+    setModalVisibility(true);
+  };
+  const hideModal = () => {
+    setModalVisibility(false);
   };
 
   useEffect(() => {
@@ -45,8 +53,14 @@ const QASection = (props) => {
           showMore={showMoreQuestions}
           count={count}
           currentlyShown={questionsShown}
+          showModal={showModal}
         />
       </div>
+      <AddQuestionModal
+        handleClose={hideModal}
+        show={modalVisibility}
+        product_id={props.product_id}
+      />
     </div>
   );
 };
