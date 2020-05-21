@@ -8,13 +8,13 @@ function StyleSelector(props) {
         <em>Style > {props.currentStyle.name}</em>
       </p>
       <div id='StyleImages'>
-        {props.styles.map((style) => {
-          // console.log(style);
+        {props.styles.map((style, i) => {
           return (
             <StyleImage
               key={style.style_id}
               style={style}
               changeCurrentStyle={props.changeCurrentStyle}
+              key={i}
             />
           );
         })}
