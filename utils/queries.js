@@ -100,6 +100,34 @@ export const getRelatedProductMeta = (productId) => {
   });
 };
 
+// nested API call for getting single product info
+export const getSingleProductInfo = (productId) => {
+  const info = axios.get(`${baseUrl}/products/${productId}/`);
+  const style = axios.get(`${baseUrl}/products/${productId}/styles/`);
+  const ratings = axios.get(`${baseUrl}/reviews/${productId}/list/`);
+  return axios.all([info, style, ratings]).then(
+    axios.spread((...response) => {
+      const responseOne = response[0].data;
+      const responseTwo = response[1].data;
+      const responseThree = response[2].data;
+      return [responseOne, responseTwo, responseThree];
+    })
+  );
+};
+
+// nested API call for comparison modal
+export const comparison = (productId1, productId2) => {
+  let prod1 = axios.get(`${baseUrl}/products/${productId1}/`);
+  let prod2 = axios.get(`${baseUrl}/products/${productId2}/`);
+  return axios.all([prod1, prod2]).then(
+    axios.spread((...response) => {
+      const responseOne = response[0].data;
+      const responseTwo = response[1].data;
+      return [responseOne, responseTwo];
+    })
+  );
+};
+
 // <-------------------------------------------QA Queries------------------------------------------------>
 
 // Should return object with product-id and array of question objects

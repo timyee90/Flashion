@@ -34,13 +34,21 @@ function SizeQuantityForm(props) {
       >
         <option value=''>SELECT SIZE</option>
         {sizes.map((size) => {
-          return <option value={size}>{size}</option>;
+          return (
+            <option key={size} value={size}>
+              {size}
+            </option>
+          );
         })}
       </select>
       <select id='quantities'>
         {props.currentSize ? (
           getQuantities().map((num) => {
-            return <option value={num}>{num}</option>;
+            return (
+              <option key={num} value={num}>
+                {num}
+              </option>
+            );
           })
         ) : (
           <option value='-'>-</option>
