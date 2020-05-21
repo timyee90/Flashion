@@ -23,7 +23,9 @@ const Ratings = (props) => {
   };
   const clearFilterBtn = showClearFilterBtn ? (
     <div>
-      <button onClick={handleClear}>CLEAR FILTER</button>
+      <button className='btn' onClick={handleClear}>
+        CLEAR FILTER
+      </button>
     </div>
   ) : (
     ''
@@ -32,7 +34,7 @@ const Ratings = (props) => {
     props.changeRatingFilter(rating);
   };
 
-  const starRows = ['5', '4', '3', '2', '1'].map((rating) => {
+  const starRows = ['5', '4', '3', '2', '1'].map((rating, id) => {
     let ratingPercentage = props.reviewsMeta
       ? props.reviewsMeta[rating].percent
       : 0;
@@ -44,6 +46,7 @@ const Ratings = (props) => {
     }
     return (
       <RatingRow
+        key={rating}
         rating={rating}
         value={rating}
         changeRatingFilter={changeRatingFilter}
@@ -57,12 +60,14 @@ const Ratings = (props) => {
     : 0;
   return (
     <div>
-      <h1>{props.averageRating.toFixed(1)}</h1>
-      <div>
-        <StarRating rating={props.averageRating} />
+      <div className='ratingDisplay'>
+        <div className='avg-rating'>{props.averageRating.toFixed(1)}</div>
+        <div className='avg-rating-star'>
+          <StarRating rating={props.averageRating} />
+        </div>
       </div>
       <p>{recommendedPerc}% of reviews recommend this product</p>
-      <table>
+      <table className='ratingRows'>
         <tbody>{starRows}</tbody>
       </table>
       {clearFilterBtn}

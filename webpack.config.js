@@ -10,6 +10,10 @@ const config = {
   module: {
     rules: [
       {
+        test: /.*\.svg$/,
+        loader: 'svg-inline-loader',
+      },
+      {
         test: /\.(js|jsx)$/,
         use: 'babel-loader',
         exclude: /node_modules/,
@@ -25,6 +29,10 @@ const config = {
             loader: 'file-loader',
           },
         ],
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },

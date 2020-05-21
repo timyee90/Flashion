@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import Helpful from './Helpful.jsx';
+import Helpful from '../RatingsReviews/Helpful.jsx';
 
 const Answer = ({ info }) => {
   const photos =
@@ -17,8 +17,7 @@ const Answer = ({ info }) => {
                 objectFit: 'contain',
                 backgroundColor: '#C0C0C0',
                 border: '1px solid black',
-              }}
-            >
+              }}>
               <img src={photo} style={{ maxHeight: '100px' }} />
             </div>
           );
@@ -28,13 +27,17 @@ const Answer = ({ info }) => {
       ''
     );
   return (
-    <div>
+    <div className='QAAnswer'>
       <p>{info.body}</p>
       {photos}
-      <p>
-        by {info.answerer_name}, {moment(info.date).format('MMMM DD, YYYY')} |{' '}
-      </p>
-      <Helpful count={info.helpfulness} type={'answer'} id={info.id} />
+      <div className='QAFooter'>
+        <div className='userDate'>
+          by {info.answerer_name}, {moment(info.date).format('MMMM DD, YYYY')} |
+        </div>
+        <div>
+          <Helpful count={info.helpfulness} type={'answer'} id={info.id} />
+        </div>
+      </div>
     </div>
   );
 };

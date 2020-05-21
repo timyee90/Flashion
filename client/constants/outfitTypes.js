@@ -1,1 +1,0 @@
-export const REMOVE_FAVORITE = 'REMOVE_FAVORITE';

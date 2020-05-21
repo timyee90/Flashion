@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import RelatedProductsList from '../components/RelatedProductsList.jsx';
+import RelatedProductsList from '../components/RelatedProductsComponents/RelatedProductsList.jsx';
 import { getRelatedProductIds } from '../actions/relatedProductActions.js';
 import { setProductID } from '../actions/appAction.js';
 
