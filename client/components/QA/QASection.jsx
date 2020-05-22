@@ -40,7 +40,16 @@ const QASection = (props) => {
   const handleQuestionSearch = (keyword) => {
     setKeywordSearch(keyword);
   };
-  const count = props.entries ? props.entries.length : 0;
+  const count = props.entries ? allQAEntries.length : 0;
+  const noCountDiv =
+    count === 0 ? (
+      <div className='noCount'>
+        <div className='fs32 bold'>
+          {' '}
+          Uh oh... No questions match your keyword :(
+        </div>
+      </div>
+    ) : null;
   return (
     <div className='QAContainer'>
       <div className='QASection'>
@@ -48,6 +57,7 @@ const QASection = (props) => {
         <div className='QASearch'>
           <QuestionSearch keywordSearch={handleQuestionSearch} />
         </div>
+        {noCountDiv}
         {QAEntries}
         <QAButtons
           showMore={showMoreQuestions}

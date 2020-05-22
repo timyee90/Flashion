@@ -1,3 +1,7 @@
+.html {
+  font-family: Verdana;
+}
+
 .MainProduct {
   display: flex;
   width: 100%;
@@ -335,6 +339,10 @@
     padding: 10px;
     border: 1px solid black;
     margin-bottom: 20px;
+    transition: 0.2s;
+    &:focus {
+      transform: scale(1.05, 1.05);
+    }
   }
   .QASection {
     width: 55%;
@@ -448,6 +456,21 @@ input:focus {
   border-radius: 2px;
   border: 1px solid black;
   background-color: #ffffff;
+  opacity: 0.6;
+  transition: 0.2s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1, 1.1);
+  }
+  &:after {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  &:after:hover {
+    opacity: 1;
+  }
 }
 
 .userDate {
@@ -496,6 +519,7 @@ input:focus {
 .modal-btns {
   @include inline-items;
   justify-content: center;
+  opacity: 0.7;
 }
 
 input[type='radio'] {
@@ -542,4 +566,8 @@ input[type='radio'] {
 
 .fileContainer {
   padding: 0;
+}
+
+.noCount {
+  margin-bottom: 10px;
 }
