@@ -12,6 +12,7 @@ function StyleSelector(props) {
           return (
             <StyleImage
               style={style}
+              currentStyleIndex={props.currentStyleIndex}
               changeCurrentStyle={props.changeCurrentStyle}
               key={i}
               styleIndex={i}

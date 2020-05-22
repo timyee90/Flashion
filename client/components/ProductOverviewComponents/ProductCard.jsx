@@ -27,6 +27,7 @@ class ProductCard extends React.Component {
     this.changeCurrentSize = this.changeCurrentSize.bind(this);
     this.changeToNextPic = this.changeToNextPic.bind(this);
     this.changeToPrevPic = this.changeToPrevPic.bind(this);
+    this.changeToChosenPic = this.changeToChosenPic.bind(this);
     this.fullDisplay = this.fullDisplay.bind(this);
   }
 
@@ -100,14 +101,16 @@ class ProductCard extends React.Component {
     }
   }
 
+  changeToChosenPic(index) {
+    this.setState({
+      currentImageIndex: index,
+    });
+  }
+
   fullDisplay() {
-    console.log(this.state.showFullScreen);
-    this.setState(
-      {
-        showFullScreen: !this.state.showFullScreen,
-      },
-      () => console.log(this.state.showFullScreen)
-    );
+    this.setState({
+      showFullScreen: !this.state.showFullScreen,
+    });
   }
 
   render() {
@@ -128,6 +131,7 @@ class ProductCard extends React.Component {
                 currentIndex={this.state.currentImageIndex}
                 fullDisplay={this.fullDisplay}
                 showFullScreen={this.state.showFullScreen}
+                changePic={this.changeToChosenPic}
               />
             </div>
           </>
@@ -145,6 +149,7 @@ class ProductCard extends React.Component {
                 prevImage={this.changeToPrevPic}
                 currentIndex={this.state.currentImageIndex}
                 fullDisplay={this.fullDisplay}
+                changePic={this.changeToChosenPic}
               />
             </div>
             <div className='InfoStyleEvents'>
@@ -182,6 +187,7 @@ class ProductCard extends React.Component {
               <div className='StyleSelector'>
                 <StyleSelector
                   currentStyle={this.state.currentStyle}
+                  currentStyleIndex={this.state.currentStyleIndex}
                   styles={this.state.styles}
                   changeCurrentStyle={this.changeCurrentStyle}
                 />

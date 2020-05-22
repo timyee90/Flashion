@@ -1,4 +1,5 @@
 import React from 'react';
+import fullscreen from '../../../dist/images/full-screen.png';
 
 const ImageGallery = (props) => {
   return (
@@ -10,7 +11,11 @@ const ImageGallery = (props) => {
               className='sideImage'
               src={image.thumbnail_url}
               key={i}
-              style={{ width: '80%', height: '150%' }}
+              style={{ width: '50px', height: '150%' }}
+              onClick={(e) => {
+                e.preventDefault();
+                props.changePic(i);
+              }}
             />
           ) : (
             <img
@@ -18,6 +23,10 @@ const ImageGallery = (props) => {
               src={image.thumbnail_url}
               key={i}
               style={{ width: '110%', height: '110%' }}
+              onClick={(e) => {
+                e.preventDefault();
+                props.changePic(i);
+              }}
             />
           );
         })}
@@ -40,7 +49,7 @@ const ImageGallery = (props) => {
             props.fullDisplay();
           }}
         >
-          Full Screen
+          <img src={fullscreen} style={{ width: '25px', height: '25px' }} />
         </button>
         <button
           id='nextPicButton'

@@ -66,9 +66,8 @@ function SizeQuantityForm(props) {
           id='addToCart'
           onClick={(e) => {
             e.preventDefault();
-            console.log(props.currentSize);
-            if (props.currentSize === '') {
-              $('#sizes').trigger('click');
+            if (!props.currentSize) {
+              alert('Please select a size before continuing...');
             }
           }}
         >
