@@ -8,8 +8,6 @@ const RelatedProductsList = (props) => {
   }, [props.product_id]);
 
   const productLength = props.relatedProducts.relatedProducts.length;
-
-  // store the start/end state
   const [range, setRange] = useState([0, 4]);
 
   const handleRightArrow = () => {
@@ -17,13 +15,32 @@ const RelatedProductsList = (props) => {
       setRange([range[0] + 1, range[1] + 1]);
     }
   };
+
   const handleLeftArrow = () => {
     if (range[0] > 0) {
       setRange([range[0] - 1, range[1] - 1]);
     }
   };
 
-  let relatedProductEntries = props.relatedProducts.relatedProducts
+  const leftArrow =
+    range[0] !== 0 ? (
+      <div className='left arrow' onClick={handleLeftArrow}>
+        <span className='glyphicon glyphicon-arrow-left btn-arrow'></span>
+      </div>
+    ) : (
+      ''
+    );
+
+  const rightArray =
+    range[1] !== productLength && productLength !== 3 ? (
+      <div className='right arrow' onClick={handleRightArrow}>
+        <span className='glyphicon glyphicon-arrow-right btn-arrow'></span>
+      </div>
+    ) : (
+      ''
+    );
+
+  const relatedProductEntries = props.relatedProducts.relatedProducts
     .slice(range[0], range[1])
     .map((relatedProduct) => {
       return (
@@ -47,13 +64,9 @@ const RelatedProductsList = (props) => {
     <div>
       <h3 className='related products-title'>Related Products</h3>
       <div className='carousel-container'>
-        <div className='left arrow' onClick={handleLeftArrow}>
-          <span className='glyphicon glyphicon-arrow-left btn-arrow'></span>
-        </div>
+        {leftArrow}
         {relatedProductEntries}
-        <div className='right arrow' onClick={handleRightArrow}>
-          <span className='glyphicon glyphicon-arrow-right btn-arrow'></span>
-        </div>
+        {rightArray}
       </div>
     </div>
   );
