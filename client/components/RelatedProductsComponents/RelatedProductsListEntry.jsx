@@ -14,13 +14,8 @@ const RelatedProductsListEntry = ({
 }) => {
   const [displayModal, toggleModal] = useState('modal-hide-rel-prod');
 
-  let url =
-    style.results.length > 0 ? style.results[0].photos[0].thumbnail_url : '';
+  let url = style.results[0].photos[0].thumbnail_url;
   let averageRating = Number(computeAverageRating(rating.results));
-
-  if (!url) {
-    return null;
-  }
 
   let comparisonResults = compareProducts(
     currentProd.features,
@@ -38,12 +33,12 @@ const RelatedProductsListEntry = ({
           </tr>
         </thead>
         <tbody>
-          {comparisonResults.map((row) => {
+          {comparisonResults.map((row, rowId) => {
             return (
-              <tr>
-                {row.map((data) => {
+              <tr key={rowId}>
+                {row.map((data, id) => {
                   return (
-                    <td>
+                    <td key={id}>
                       {data === true ? (
                         <span>&#10003;</span>
                       ) : data === false ? (

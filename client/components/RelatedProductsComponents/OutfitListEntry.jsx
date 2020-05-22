@@ -10,13 +10,8 @@ const OutfitListEntry = ({
   setProductId,
   remove,
 }) => {
-  let url =
-    style.results.length > 0 ? style.results[0].photos[0].thumbnail_url : '';
+  let url = style.results[0].photos[0].thumbnail_url;
   let averageRating = Number(computeAverageRating(rating.results));
-
-  if (!url) {
-    return null;
-  }
 
   let star =
     averageRating > 0 ? (

@@ -81,7 +81,9 @@ export const getRelatedProductMeta = (productId) => {
 
   return results.then((promiseArray) => {
     return Promise.all(promiseArray).then((data) => {
-      return data;
+      return data.filter((item) => {
+        return item[1].results[0].photos[0].thumbnail_url !== null;
+      });
     });
   });
 };
