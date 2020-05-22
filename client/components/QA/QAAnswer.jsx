@@ -12,13 +12,14 @@ const Answer = ({ info }) => {
               key={index}
               style={{
                 textAlign: 'center',
-                height: '100px',
-                width: '200px',
+                height: '75px',
+                width: '140px',
                 objectFit: 'contain',
                 backgroundColor: '#C0C0C0',
                 border: '1px solid black',
+                marginRight: '15-px',
               }}>
-              <img src={photo} style={{ maxHeight: '100px' }} />
+              <img src={photo} style={{ maxHeight: '75px' }} />
             </div>
           );
         })}

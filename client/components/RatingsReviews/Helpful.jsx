@@ -14,9 +14,14 @@ const Helpful = (props) => {
   const anchorStyle = {
     cursor: 'pointer',
     textDecorationLine: 'underLine',
+    color: 'black',
   };
   const count =
-    props.count > 0 ? ` (${props.count + (isHelpful ? 1 : 0)})` : '0';
+    props.count > 0
+      ? `${props.count + (isHelpful ? 1 : 0)}`
+      : isHelpful
+      ? 1
+      : 0;
   const showHelpful = isHelpful ? 'Voted' : 'Yes';
   const handleReport = () => {
     if (props.type === 'answer') {
@@ -76,7 +81,7 @@ const Helpful = (props) => {
           {showHelpful}
         </a>
       </div>
-      <div>{count}</div>
+      <div>({count})</div>
       <div>|</div>
       {module}
     </div>

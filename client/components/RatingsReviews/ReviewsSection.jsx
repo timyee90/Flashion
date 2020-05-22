@@ -39,7 +39,12 @@ const ReviewsSection = (props) => {
   }
 
   let reviews = !moreReviews ? allReviews.slice(0, 2) : allReviews;
-
+  const noCountDiv =
+    reviews.length === 0 ? (
+      <div className='noCount'>
+        <div className='fs32 bold'> No reviews can be matched :(</div>
+      </div>
+    ) : null;
   const handleSelectChange = (e) => {
     props.changeSortCriteriaReview(e.value);
   };
@@ -54,7 +59,7 @@ const ReviewsSection = (props) => {
   return (
     <div>
       <div className='fs32 bold'>
-        {props.count} reviews, sorted by{' '}
+        {allReviews.length} reviews, sorted by{' '}
         <Select
           options={selectOptions}
           defaultValue={{ value: 'helpful', label: 'Helpful' }}
@@ -62,6 +67,7 @@ const ReviewsSection = (props) => {
         />
       </div>
       <div>{reviews}</div>
+      {noCountDiv}
       <div className='reviewsBtnRow'>
         {loadMoreReviewsBtn}
         <button className='bottom-btn bold fs32' onClick={showModal}>
