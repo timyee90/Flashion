@@ -278,6 +278,7 @@
 }
 
 .modal {
+  overflow-y: auto;
   position: fixed;
   top: 0;
   left: 0;
@@ -289,7 +290,7 @@
 .modal-main {
   position: fixed;
   background: white;
-  width: 80%;
+  width: 60%;
   height: auto;
   top: 50%;
   left: 50%;
@@ -354,6 +355,11 @@
   align-items: center;
 }
 
+.QAPhotos {
+  @include inline-items;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .QAHeader {
   @include inline-items;
   margin-bottom: 10px;
@@ -382,6 +388,7 @@ input:focus {
   justify-content: center;
   width: 100%;
   padding: 10px;
+  min-height: 700px;
 }
 
 .RRSection {
@@ -435,7 +442,7 @@ input:focus {
   font-size: 1.2em;
 }
 
-.btn {
+.bottom-btn {
   padding: 12px 24px;
   margin: 5px 10px 5px 10px;
   border-radius: 2px;
@@ -476,4 +483,63 @@ input:focus {
 
 .textInput {
   width: 80%;
+}
+
+.question {
+  width: 70%;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.modal-btns {
+  @include inline-items;
+  justify-content: center;
+}
+
+input[type='radio'] {
+  display: inline-block;
+  margin: 0 10px 0 10px;
+}
+
+.gauge-arrow {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid black;
+}
+
+.characteristics-bar {
+  margin-bottom: 10px;
+  .bar-gauge {
+    width: 100%;
+    margin-top: 5px;
+    .arrow-pos {
+      padding-top: 2px;
+      transform: translateX(-50%);
+    }
+  }
+  .bar-gauge-labels {
+  }
+}
+
+.singleline-input {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.body-input {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  width: 100%;
+  height: 20%;
+}
+
+.fileContainer {
+  padding: 0;
 }

@@ -85,7 +85,10 @@ const AddReviewModal = (props) => {
       });
       isValid = false;
     }
-    if (reviewInfo.email.length === 0 || !EmailValidator(review.email)) {
+    if (
+      reviewInfo.email.length === 0 ||
+      !EmailValidator.validate(reviewInfo.email)
+    ) {
       setWarning((warnings) => {
         return {
           ...warnings,
@@ -172,21 +175,26 @@ const AddReviewModal = (props) => {
       <div className={showHideClassName}>
         <div className='modal-main'>
           <div className='bold modalTitle'>Write Your Review</div>
-          <div className='bold modalSubtitle'>About the product</div>
+          <div className='bold modalSubtitle'>
+            About the product: {props.product_name}
+          </div>
           <form>
             <label className='addReviewField'>
               <div>Review Summary:</div>
               <input
+                className='singleline-input'
                 type='text'
                 value={reviewInfo.summary}
                 placeholder='Example: Best purchase ever!'
                 onChange={(e) => handleTextChange(e, 'summary')}></input>
             </label>
-            <div className={warnings.rating ? 'warning' : ''}>
-              <div>Your rating: </div>
-              <StarRating rating={rating} onChange={changeRating} />{' '}
-              <p>{ratingDescription[rating]}</p>
-            </div>
+            <label>
+              <div className={warnings.rating ? 'warning' : ''}>
+                <div>Your rating: </div>
+                <StarRating rating={rating} onChange={changeRating} />{' '}
+                <p>{ratingDescription[rating]}</p>
+              </div>
+            </label>
             <label
               className={
                 warnings.body
@@ -195,7 +203,7 @@ const AddReviewModal = (props) => {
               }>
               <div>Review Body:</div>
               <input
-                className='textInput body'
+                className='textInput body-input'
                 type='text'
                 value={reviewInfo.body}
                 placeholder='Why did you like the product or not'
@@ -221,7 +229,7 @@ const AddReviewModal = (props) => {
               </label>
             </label>
             <div className='addReviewField'>
-              Characteristics:
+              <div className='bold'>Characteristics:</div>
               <table className='characteristics'>
                 <tbody>
                   <CharacteristicsForm
@@ -231,46 +239,55 @@ const AddReviewModal = (props) => {
                 </tbody>
               </table>
             </div>
-
-            <label
-              className={
-                warnings.nickName ? 'addReviewField warning' : 'addReviewField'
-              }>
-              <div>Nickname:</div>
-              <input
-                type='text'
-                value={reviewInfo.nickName}
-                placeholder='Example: jackson11!'
-                onChange={(e) => handleTextChange(e, 'nickName')}></input>
-            </label>
-            <label
-              className={
-                warnings.email ? 'addReviewField warning' : 'addReviewField'
-              }>
-              <div>Email:</div>
-              <input
-                type='email'
-                placeholder='Example: jackson11@email.com'
-                value={reviewInfo.email}
-                onChange={(e) => handleTextChange(e, 'email')}></input>
-            </label>
+            <div className='modal-btns'>
+              <label
+                className={
+                  warnings.nickName
+                    ? 'addReviewField warning'
+                    : 'addReviewField'
+                }>
+                <div>Nickname:</div>
+                <input
+                  className='singleline-input'
+                  type='text'
+                  value={reviewInfo.nickName}
+                  placeholder='Example: jackson11!'
+                  onChange={(e) => handleTextChange(e, 'nickName')}></input>
+              </label>
+              <label
+                className={
+                  warnings.email ? 'addReviewField warning' : 'addReviewField'
+                }>
+                <div>Email:</div>
+                <input
+                  className='singleline-input'
+                  type='email'
+                  placeholder='Example: jackson11@email.com'
+                  value={reviewInfo.email}
+                  onChange={(e) => handleTextChange(e, 'email')}></input>
+              </label>
+            </div>
             <ImageUploader
-              withIcon={true}
+              withIcon={false}
               withPreview={true}
               buttonText='Choose images'
               onChange={handlePictureUpload}
               imgExtension={['.jpg', '.gif', '.png', '.gif']}
               maxFileSize={5242880}
             />
+          </form>
+          <div className='modal-btns'>
             <input
-              className='btn fs32 bold'
+              className='bottom-btn fs32 bold'
               type='button'
               onClick={handleSubmit}
               value='Add Review'></input>
-          </form>
-          <button className='btn fs32 bold' onClick={props.handleClose}>
-            Close
-          </button>
+            <button
+              className='bottom-btn fs32 bold'
+              onClick={props.handleClose}>
+              Close
+            </button>
+          </div>
         </div>
       </div>
     </aside>

@@ -13,17 +13,18 @@ const Ratings = (props) => {
   useEffect(() => {
     if (props.ratingsFilter.length > 0) {
       toggleClearFilterBtn(true);
+    } else {
+      toggleClearFilterBtn(false);
     }
   }, [props.ratingsFilter]);
 
   const handleClear = (e) => {
-    console.log('clear');
     props.clearRatingFilter();
     toggleClearFilterBtn(false);
   };
   const clearFilterBtn = showClearFilterBtn ? (
     <div>
-      <button className='btn' onClick={handleClear}>
+      <button className='bottom-btn bold' onClick={handleClear}>
         CLEAR FILTER
       </button>
     </div>
@@ -52,16 +53,29 @@ const Ratings = (props) => {
         changeRatingFilter={changeRatingFilter}
         percentage={ratingPercentage}
         count={count}
+        filters={props.ratingsFilter}
       />
     );
   });
   const recommendedPerc = props.recommendedPercentage
     ? props.recommendedPercentage.toFixed(1)
     : 0;
+  const barRatingGauges = Object.keys(props.characteristics).map(
+    (characteristic) => {
+      return (
+        <div>
+          <BarRatingGauge
+            category={characteristic}
+            value={props.characteristics[characteristic].value}
+          />
+        </div>
+      );
+    }
+  );
   return (
     <div>
       <div className='ratingDisplay'>
-        <div className='avg-rating'>{props.averageRating.toFixed(1)}</div>
+        <div className='avg-rating bold'>{props.averageRating.toFixed(1)}</div>
         <div className='avg-rating-star'>
           <StarRating rating={props.averageRating} />
         </div>
@@ -71,8 +85,7 @@ const Ratings = (props) => {
         <tbody>{starRows}</tbody>
       </table>
       {clearFilterBtn}
-      <BarRatingGauge category='size' />
-      <BarRatingGauge category='comfort' />
+      {barRatingGauges}
     </div>
   );
 };
