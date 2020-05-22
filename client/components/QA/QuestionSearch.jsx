@@ -21,6 +21,9 @@ const QuestionSearch = (props) => {
           onChange={handleChange}
           placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...'
           className='questionSearch'></input>
+        <i
+          style={{ float: 'right', paddingRight: '5px' }}
+          className='glyphicon glyphicon-search'></i>
       </form>
     </div>
   );
