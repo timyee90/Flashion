@@ -1,5 +1,4 @@
 import axios from 'axios';
-import _ from 'underscore';
 
 //<-------------------Query Constants--------------------->
 
@@ -72,13 +71,6 @@ export const getRelatedProducts = (product_id) => {
 
 // nested API call for related products component
 export const getRelatedProductMeta = (productId) => {
-  // let results = getRelatedProducts(productId).then((relatedProductArray) => {
-  //   return _.uniq(
-  //     relatedProductArray.filter((prod) => prod !== productId && prod !== 10)
-  //   ).map((relatedProduct) => {
-  //     return getSingleProductInfo(relatedProduct);
-  //   });
-  // });
   let results = getRelatedProducts(productId).then((relatedProductArray) => {
     return [...new Set(relatedProductArray)]
       .filter((prod) => prod !== productId && prod !== 10)

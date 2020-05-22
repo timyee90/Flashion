@@ -206,6 +206,8 @@
   padding: 10px 5px 10px 15px;
 }
 
+// related products
+
 .carousel-container {
   display: flex;
   justify-content: center;
@@ -248,6 +250,44 @@
   top: 50%;
   left: 25%;
 }
+
+.modal-show-rel-prod {
+  display: block;
+}
+
+.modal-hide-rel-prod {
+  display: none;
+}
+
+.modal-main-rel-prod {
+  position: fixed;
+  background: rgb(172, 160, 160);
+  width: 80%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+}
+
+#modal {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#modal thead {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4caf50;
+  color: white;
+}
+
+#modal tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+// ratings, reviews, Q&A
 
 .modal {
   position: fixed;

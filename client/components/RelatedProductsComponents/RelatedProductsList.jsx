@@ -4,6 +4,7 @@ import RelatedProductsListEntry from './RelatedProductsListEntry.jsx';
 const RelatedProductsList = (props) => {
   useEffect(() => {
     props.getRelatedProductIds(props.product_id);
+    props.getCurrentProductInfo(props.product_id);
   }, [props.product_id]);
 
   let relatedProductEntries = props.relatedProducts.relatedProducts.map(
@@ -20,6 +21,7 @@ const RelatedProductsList = (props) => {
           style={relatedProduct[1]}
           rating={relatedProduct[2]}
           currentId={props.product_id}
+          currentProd={props.relatedProducts.currentProductInfo}
         />
       );
     }
