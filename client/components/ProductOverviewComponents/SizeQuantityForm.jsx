@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 
 function SizeQuantityForm(props) {
   const sizes = [];
@@ -39,7 +40,6 @@ function SizeQuantityForm(props) {
         }}
       >
         <option value=''>SELECT SIZE</option>
-
         {sizes.map((size, i) => {
           return (
             <option value={size} key={i}>
@@ -50,11 +50,9 @@ function SizeQuantityForm(props) {
       </select>
       <select id='quantities'>
         {props.currentSize ? (
-
           getQuantities().map((num, i) => {
             return (
               <option value={num} key={i}>
-
                 {num}
               </option>
             );
@@ -64,7 +62,18 @@ function SizeQuantityForm(props) {
         )}
       </select>
       {props.currentSize !== 'OUT OF STOCK' ? (
-        <button id='addToCart'>Add to Cart</button>
+        <button
+          id='addToCart'
+          onClick={(e) => {
+            e.preventDefault();
+            console.log(props.currentSize);
+            if (props.currentSize === '') {
+              $('#sizes').trigger('click');
+            }
+          }}
+        >
+          Add to Cart
+        </button>
       ) : (
         ''
       )}
