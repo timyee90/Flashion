@@ -57,7 +57,6 @@ const Ratings = (props) => {
       />
     );
   });
-  const characteristics = props.characteristics;
   const recommendedPerc = props.recommendedPercentage
     ? props.recommendedPercentage.toFixed(1)
     : 0;

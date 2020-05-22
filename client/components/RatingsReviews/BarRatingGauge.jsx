@@ -19,6 +19,7 @@ const BarRatingGauge = (props) => {
     Fit: ['Runs tight', 'Perfect', 'Runs long'],
     Length: ['Runs short', 'Perfect', 'Runs long'],
     Quality: ['Poor', 'What I expected', 'Perfect'],
+    Width: ['Runs tight', 'Perfect', 'Runs wide'],
   };
   const labels = labelTags[props.category].map((label) => {
     return <div>{label}</div>;
