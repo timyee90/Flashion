@@ -8,16 +8,10 @@ const OutfitListEntry = ({
   style,
   rating,
   setProductId,
-  currentId,
   remove,
 }) => {
-  let url =
-    style.results.length > 0 ? style.results[0].photos[0].thumbnail_url : '';
+  let url = style.results[0].photos[0].thumbnail_url;
   let averageRating = Number(computeAverageRating(rating.results));
-
-  if (!url) {
-    return null;
-  }
 
   let star =
     averageRating > 0 ? (
@@ -41,12 +35,12 @@ const OutfitListEntry = ({
       ></img>
       <button
         onClick={() => {
-          remove(currentId);
+          remove(id);
         }}
         type='button'
         className='btn btn-default btn-sm btn-overlap'
       >
-        <span className='glyphicon glyphicon-remove'></span>
+        <span className='glyphicon glyphicon-remove remove-btn'></span>
       </button>
       <div onClick={() => setProductId(id)}>{product.category}</div>
       <div onClick={() => setProductId(id)}>{product.name}</div>

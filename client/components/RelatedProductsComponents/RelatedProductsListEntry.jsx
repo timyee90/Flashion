@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { computeAverageRating } from '../../../utils/computeRatingAverage.js';
-import { comparison } from '../../../utils/queries.js';
+import { compareProducts } from '../../../utils/comparison.js';
 import StarRatingModule from 'react-star-ratings';
 
 const RelatedProductsListEntry = ({
@@ -10,19 +10,56 @@ const RelatedProductsListEntry = ({
   rating,
   setProductId,
   currentId,
+  currentProd,
 }) => {
-  let url =
-    style.results.length > 0 ? style.results[0].photos[0].thumbnail_url : '';
+  const [displayModal, toggleModal] = useState('modal-hide-rel-prod');
+
+  let url = style.results[0].photos[0].thumbnail_url;
   let averageRating = Number(computeAverageRating(rating.results));
 
-  if (!url) {
-    return null;
-  }
+  let comparisonResults = compareProducts(
+    currentProd.features,
+    product.features
+  );
 
-  const [productComparison, getProductComparison] = useState([]);
-  useEffect(() => {
-    getProductComparison(comparison(id, currentId));
-  }, []);
+  let productComparisonData = (
+    <div>
+      <table id='modal'>
+        <thead>
+          <tr>
+            <th>Current Product</th>
+            <th>Feature</th>
+            <th>Related Product</th>
+          </tr>
+        </thead>
+        <tbody>
+          {comparisonResults.map((row, rowId) => {
+            return (
+              <tr key={rowId}>
+                {row.map((data, id) => {
+                  return (
+                    <td key={id}>
+                      {data === true ? (
+                        <span>&#10003;</span>
+                      ) : data === false ? (
+                        ''
+                      ) : (
+                        data
+                      )}
+                    </td>
+                  );
+                })}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+
+  const handleClose = () => {
+    toggleModal('modal-hide-rel-prod');
+  };
 
   let star =
     averageRating > 0 ? (
@@ -46,11 +83,7 @@ const RelatedProductsListEntry = ({
       ></img>
       <button
         onClick={() => {
-          productComparison.then((data) => {
-            let prod1 = data[0];
-            let prod2 = data[1];
-            console.log(`product comparison data: `, data);
-          });
+          toggleModal('modal-show-rel-prod');
         }}
         type='button'
         className='btn btn-default btn-sm btn-overlap'
@@ -61,6 +94,15 @@ const RelatedProductsListEntry = ({
       <div onClick={() => setProductId(id)}>{product.name}</div>
       <div onClick={() => setProductId(id)}>${product.default_price}</div>
       <div onClick={() => setProductId(id)}>{star}</div>
+
+      <aside role='dialog'>
+        <div className={displayModal}>
+          <div className='modal-main-rel-prod'>
+            <div>{productComparisonData ? productComparisonData : ''}</div>
+            <button onClick={handleClose}>Close</button>
+          </div>
+        </div>
+      </aside>
     </div>
   );
 };

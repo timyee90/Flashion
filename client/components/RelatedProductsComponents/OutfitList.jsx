@@ -13,26 +13,32 @@ const OutfitList = (props) => {
   }, [props.product_id]);
 
   const removeFromArray = (id) => {
-    let tempOutfit = outfit.slice();
+    let tempOutfit = JSON.parse(sessionStorage.getItem('outfit')) || [];
     let index = tempOutfit
       .map((item) => {
         return item[0].id;
       })
-      .indexOf(id);
+      .indexOf(parseInt(id));
     if (index > -1) tempOutfit.splice(index, 1);
-    setOutfit(tempOutfit);
+    sessionStorage.setItem('outfit', JSON.stringify(tempOutfit));
+    setOutfit(JSON.parse(sessionStorage.getItem('outfit')));
   };
 
   const handleAddOutfit = () => {
+    let tempOutfit = JSON.parse(sessionStorage.getItem('outfit')) || [];
     if (
-      outfit.length === 0 ||
-      outfit
+      tempOutfit.length === 0 ||
+      tempOutfit
         .map((prod) => {
           return prod[0].id;
         })
         .indexOf(currentProd[0].id) === -1
     ) {
-      setOutfit(outfit.concat([currentProd]));
+      sessionStorage.setItem(
+        'outfit',
+        JSON.stringify(tempOutfit.concat([currentProd]))
+      );
+      setOutfit(JSON.parse(sessionStorage.getItem('outfit')));
     }
   };
 
@@ -44,7 +50,8 @@ const OutfitList = (props) => {
     </div>
   );
 
-  const outfitEntries = outfit.map((item) => {
+  let outfitArray = JSON.parse(sessionStorage.getItem('outfit')) || [];
+  const outfitEntries = outfitArray.map((item) => {
     return (
       <OutfitListEntry
         className='product-container'

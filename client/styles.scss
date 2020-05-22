@@ -238,6 +238,8 @@
   padding: 10px 5px 10px 15px;
 }
 
+// related products
+
 .carousel-container {
   display: flex;
   justify-content: center;
@@ -248,14 +250,41 @@
   justify-content: center;
 }
 
+.arrow {
+  height: 450px;
+  width: 50px;
+  border: 1px solid;
+  background-color: lightgray;
+}
+
+.arrow:hover {
+  opacity: 75%;
+}
+
+.btn-arrow {
+  font-size: x-large;
+  margin: 0;
+  position: relative;
+  top: 50%;
+  left: 25%;
+}
+
+.star-btn {
+  font-size: medium;
+}
+
+.remove-btn {
+  font-size: medium;
+}
+
 .btn-overlap {
   position: absolute;
   transform: translate(-100%, 0%);
 }
 
 .rel-prod-img {
-  width: 300px;
   height: 450px;
+  width: 300px;
   object-fit: cover;
 }
 
@@ -264,8 +293,8 @@
 }
 
 .add-outfit-container {
-  width: 300px;
   height: 450px;
+  width: 300px;
   border: 1px solid;
 }
 
@@ -280,6 +309,50 @@
   top: 50%;
   left: 25%;
 }
+
+.modal-show-rel-prod {
+  display: block;
+}
+
+.modal-hide-rel-prod {
+  display: none;
+}
+
+.modal-main-rel-prod {
+  position: fixed;
+  background: rgb(172, 160, 160);
+  width: 80%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  z-index: 2;
+}
+
+#modal {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid;
+}
+
+#modal thead {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4caf50;
+  color: white;
+}
+
+#modal tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#modal tr {
+  border: 1px solid black;
+}
+
+// ratings, reviews, Q&A
 
 .modal {
   overflow-y: auto;
