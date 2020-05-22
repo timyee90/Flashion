@@ -5,12 +5,19 @@ const ImageGallery = (props) => {
     <div className='Gallery'>
       <div className='sideImages'>
         {props.images.map((image, i) => {
-          return (
+          return props.showFullScreen ? (
             <img
               className='sideImage'
               src={image.thumbnail_url}
               key={i}
-              style={{ width: '100%', height: '100%' }}
+              style={{ width: '80%', height: '150%' }}
+            />
+          ) : (
+            <img
+              className='sideImage'
+              src={image.thumbnail_url}
+              key={i}
+              style={{ width: '110%', height: '110%' }}
             />
           );
         })}
@@ -25,15 +32,26 @@ const ImageGallery = (props) => {
         {'<'}
       </button>
       <img id='MainImage' src={props.display} />
-      <button
-        id='nextPicButton'
-        onClick={(e) => {
-          e.preventDefault();
-          props.nextImage();
-        }}
-      >
-        {'>'}
-      </button>
+      <div id='nextAndFullButtons'>
+        <button
+          id='fullscreen'
+          onClick={(e) => {
+            e.preventDefault();
+            props.fullDisplay();
+          }}
+        >
+          Full Screen
+        </button>
+        <button
+          id='nextPicButton'
+          onClick={(e) => {
+            e.preventDefault();
+            props.nextImage();
+          }}
+        >
+          {'>'}
+        </button>
+      </div>
     </div>
   );
 };

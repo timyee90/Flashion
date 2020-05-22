@@ -11,10 +11,10 @@ function StyleSelector(props) {
         {props.styles.map((style, i) => {
           return (
             <StyleImage
-              key={style.style_id}
               style={style}
               changeCurrentStyle={props.changeCurrentStyle}
               key={i}
+              styleIndex={i}
             />
           );
         })}

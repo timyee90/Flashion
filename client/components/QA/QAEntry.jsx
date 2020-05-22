@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import QAAnswer from './QAAnswer.jsx';
 import Helpful from '../RatingsReviews/Helpful.jsx';
+import AddAnswerModal from './AddAnswerModal.jsx';
 
 const QAEntry = ({ qaInfo }) => {
   const [moreAnswers, loadMoreAnswers] = useState(false);
   const [toggleBtnText, changeToggleBtnText] = useState('LOAD MORE ANSWERS');
+  const [modalVisibility, setModalVisibility] = useState(false);
   const answersArray = Object.values(qaInfo.answers);
   let loadMoreAnswersBtn = '';
+
+  const showModal = () => {
+    setModalVisibility(true);
+  };
+  const hideModal = () => {
+    setModalVisibility(false);
+  };
 
   const handleLoadMoreAnswers = () => {
     loadMoreAnswers(!moreAnswers);
@@ -15,7 +24,7 @@ const QAEntry = ({ qaInfo }) => {
   };
   if (answersArray.length > 2) {
     loadMoreAnswersBtn = (
-      <div className='bold' onClick={handleLoadMoreAnswers}>
+      <div className='bold pointer' onClick={handleLoadMoreAnswers}>
         {toggleBtnText}
       </div>
     );
@@ -36,6 +45,7 @@ const QAEntry = ({ qaInfo }) => {
               type={'question'}
               count={qaInfo.question_helpfulness}
               id={qaInfo.question_id}
+              showModal={showModal}
             />
           </div>
         </div>
@@ -47,6 +57,11 @@ const QAEntry = ({ qaInfo }) => {
           {loadMoreAnswersBtn}
         </div>
       </div>
+      <AddAnswerModal
+        handleClose={hideModal}
+        show={modalVisibility}
+        product_id={qaInfo.question_id}
+      />
     </div>
   );
 };

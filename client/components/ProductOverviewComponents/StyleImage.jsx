@@ -7,7 +7,7 @@ function StyleImage(props) {
       id='StyleImage'
       onClick={(e) => {
         e.preventDefault();
-        props.changeCurrentStyle(props.style);
+        props.changeCurrentStyle(props.style, props.styleIndex);
       }}
     />
   );

@@ -14,6 +14,7 @@ const mapStateToProps = (state) => {
     recommendedPercentage: state.reviews.recommendedPercentage,
     reviewsMeta: state.ratings.reviewMetadata,
     ratingsFilter: state.ratings.ratingFilter,
+    characteristics: state.ratings.fullMetadata.characteristics,
   };
 };
 

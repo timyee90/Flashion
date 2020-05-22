@@ -3,7 +3,9 @@ import {
   GET_STYLES_DATA,
 } from '../constants/ProductOverviewTypes';
 
-const initState = {};
+const initState = {
+  productInfo: {},
+};
 
 const productOverviewReducer = (state = initState, action) => {
   switch (action.type) {

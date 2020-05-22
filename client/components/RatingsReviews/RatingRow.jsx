@@ -7,16 +7,20 @@ const RatingRow = (props) => {
   const ratingStyle = {
     cursor: 'pointer',
     textDecorationLine: 'underLine',
+    overflowWrap: 'break-word',
   };
 
   const handleRatingClick = (e) => {
     let ratingClicked = e.target.getAttribute('value');
+    toggleClick(!isClicked);
     props.changeRatingFilter(ratingClicked);
   };
-
+  const clickedStyle = props.filters.includes(props.rating)
+    ? { backgroundColor: 'yellow' }
+    : {};
   return (
     <tr key={props.rating} className='ratingRow'>
-      <td className='ratingRow-rating'>
+      <td className='ratingRow-rating' style={clickedStyle}>
         <a style={ratingStyle} value={props.rating} onClick={handleRatingClick}>
           {props.rating} stars
         </a>
@@ -24,7 +28,7 @@ const RatingRow = (props) => {
       <td className='ratingRow-progressbar'>
         <ProgressBar percentage={props.percentage} />
       </td>
-      <td className='ratingRow-count'> {props.count} </td>
+      <td className='ratingRow-count'> ({props.count}) </td>
     </tr>
   );
 };

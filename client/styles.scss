@@ -2,7 +2,7 @@
   display: flex;
   width: 100%;
   height: 650px;
-  align-content: flex-start;
+  align-self: flex-start;
   flex-flow: row wrap;
   justify-content: center;
 
@@ -16,8 +16,6 @@
 
     .ImageGallery {
       display: flex;
-      width: 65%;
-      height: 100%;
       background-color: lightgray;
       margin-right: 15px;
 
@@ -37,16 +35,16 @@
           height: 8%;
 
           .sideImage {
-            margin: 10px 10px 5px 20px;
+            margin: 10px 15px 5px 15px;
           }
         }
 
         #previousPicButton {
           order: 1;
-          width: 5%;
-          height: 5%;
+          width: 12%;
+          height: 10%;
           align-self: center;
-          border-radius: 50%;
+          border-radius: 10%;
           background-color: transparent;
           font-size: large;
           margin-left: 25px;
@@ -69,27 +67,57 @@
           height: 100%;
           object-fit: contain;
           margin: auto;
+          padding-left: 5px;
         }
 
-        #nextPicButton {
+        #nextAndFullButtons {
           order: 3;
-          width: 5%;
-          height: 5%;
-          align-self: center;
-          border-radius: 50%;
-          margin-right: 8px;
-          background-color: transparent;
-          font-size: large;
-          border: none;
-          outline: none;
-        }
+          display: flex;
+          flex-direction: column;
+          width: 20%;
+          height: 100%;
 
-        #nextPicButton:hover {
-          background-color: rgba($color: white, $alpha: 0.4);
-        }
+          #fullscreen {
+            width: 80%;
+            height: 10%;
+            justify-self: center;
+            align-self: center;
+            border-radius: 10%;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            margin-right: 10px;
+            margin-top: 10px;
+          }
 
-        #nextPicButton:active {
-          background-color: rgba($color: white, $alpha: 0.6);
+          #fullscreen:hover {
+            background-color: rgba($color: white, $alpha: 0.4);
+          }
+
+          #fullscreen:active {
+            background-color: rgba($color: white, $alpha: 0.6);
+          }
+
+          #nextPicButton {
+            width: 70%;
+            height: 10%;
+            align-self: flex-end;
+            border-radius: 10%;
+            margin-top: 180px;
+            margin-right: 10px;
+            background-color: transparent;
+            font-size: large;
+            border: none;
+            outline: none;
+          }
+
+          #nextPicButton:hover {
+            background-color: rgba($color: white, $alpha: 0.4);
+          }
+
+          #nextPicButton:active {
+            background-color: rgba($color: white, $alpha: 0.6);
+          }
         }
       }
     }
@@ -318,6 +346,7 @@
 // ratings, reviews, Q&A
 
 .modal {
+  overflow-y: auto;
   position: fixed;
   top: 0;
   left: 0;
@@ -329,7 +358,7 @@
 .modal-main {
   position: fixed;
   background: white;
-  width: 80%;
+  width: 60%;
   height: auto;
   top: 50%;
   left: 50%;
@@ -394,6 +423,11 @@
   align-items: center;
 }
 
+.QAPhotos {
+  @include inline-items;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .QAHeader {
   @include inline-items;
   margin-bottom: 10px;
@@ -422,6 +456,7 @@ input:focus {
   justify-content: center;
   width: 100%;
   padding: 10px;
+  min-height: 700px;
 }
 
 .RRSection {
@@ -475,7 +510,7 @@ input:focus {
   font-size: 1.2em;
 }
 
-.btn {
+.bottom-btn {
   padding: 12px 24px;
   margin: 5px 10px 5px 10px;
   border-radius: 2px;
@@ -516,4 +551,63 @@ input:focus {
 
 .textInput {
   width: 80%;
+}
+
+.question {
+  width: 70%;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.modal-btns {
+  @include inline-items;
+  justify-content: center;
+}
+
+input[type='radio'] {
+  display: inline-block;
+  margin: 0 10px 0 10px;
+}
+
+.gauge-arrow {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid black;
+}
+
+.characteristics-bar {
+  margin-bottom: 10px;
+  .bar-gauge {
+    width: 100%;
+    margin-top: 5px;
+    .arrow-pos {
+      padding-top: 2px;
+      transform: translateX(-50%);
+    }
+  }
+  .bar-gauge-labels {
+  }
+}
+
+.singleline-input {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.body-input {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  width: 100%;
+  height: 20%;
+}
+
+.fileContainer {
+  padding: 0;
 }

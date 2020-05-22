@@ -32,7 +32,7 @@ const ReviewsSection = (props) => {
 
   if (allReviews.length > 2) {
     loadMoreReviewsBtn = (
-      <button className='btn bold fs32' onClick={handleLoadMoreReviews}>
+      <button className='bottom-btn bold fs32' onClick={handleLoadMoreReviews}>
         {toggleBtnText}
       </button>
     );
@@ -50,7 +50,7 @@ const ReviewsSection = (props) => {
   const hideModal = () => {
     setModalVisibility(false);
   };
-
+  const productName = props.product_name ? props.product_name : '';
   return (
     <div>
       <div className='fs32 bold'>
@@ -64,7 +64,7 @@ const ReviewsSection = (props) => {
       <div>{reviews}</div>
       <div className='reviewsBtnRow'>
         {loadMoreReviewsBtn}
-        <button className='btn bold fs32' onClick={showModal}>
+        <button className='bottom-btn bold fs32' onClick={showModal}>
           ADD A REVIEW +{' '}
         </button>
       </div>
@@ -72,6 +72,7 @@ const ReviewsSection = (props) => {
         handleClose={hideModal}
         show={modalVisibility}
         product_id={props.product_id}
+        product_name={productName}
       />
     </div>
   );
