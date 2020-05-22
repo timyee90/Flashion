@@ -40,7 +40,7 @@ const OutfitListEntry = ({
         type='button'
         className='btn btn-default btn-sm btn-overlap'
       >
-        <span className='glyphicon glyphicon-remove'></span>
+        <span className='glyphicon glyphicon-remove remove-btn'></span>
       </button>
       <div onClick={() => setProductId(id)}>{product.category}</div>
       <div onClick={() => setProductId(id)}>{product.name}</div>

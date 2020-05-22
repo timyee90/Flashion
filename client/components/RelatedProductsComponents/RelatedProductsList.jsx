@@ -31,8 +31,8 @@ const RelatedProductsList = (props) => {
       ''
     );
 
-  const rightArray =
-    range[1] !== productLength && productLength !== 3 ? (
+  const rightArrow =
+    range[1] !== productLength && productLength >= 4 ? (
       <div className='right arrow' onClick={handleRightArrow}>
         <span className='glyphicon glyphicon-arrow-right btn-arrow'></span>
       </div>
@@ -66,7 +66,7 @@ const RelatedProductsList = (props) => {
       <div className='carousel-container'>
         {leftArrow}
         {relatedProductEntries}
-        {rightArray}
+        {rightArrow}
       </div>
     </div>
   );

@@ -241,14 +241,18 @@
   font-size: medium;
 }
 
+.remove-btn {
+  font-size: medium;
+}
+
 .btn-overlap {
   position: absolute;
   transform: translate(-100%, 0%);
 }
 
 .rel-prod-img {
-  width: 300px;
   height: 450px;
+  width: 300px;
   object-fit: cover;
 }
 
@@ -257,8 +261,8 @@
 }
 
 .add-outfit-container {
-  width: 300px;
   height: 450px;
+  width: 300px;
   border: 1px solid;
 }
 
@@ -291,6 +295,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 10px;
+  z-index: 2;
 }
 
 #modal {
