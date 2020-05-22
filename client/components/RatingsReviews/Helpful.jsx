@@ -25,9 +25,11 @@ const Helpful = (props) => {
     }
     if (props.type === 'question') {
       reportQuestion(props.id);
+      report(true);
     }
     if (props.type === 'reviews') {
       reportReview(props.id);
+      report(true);
     }
   };
 
@@ -52,11 +54,11 @@ const Helpful = (props) => {
     props.showModal();
   };
   const reportModule = isReported ? (
-    <div>Reported</div>
+    <div style={{ color: 'red' }}>Reported</div>
   ) : (
-    <a style={anchorStyle} onClick={handleReport}>
+    <div style={anchorStyle} onClick={handleReport}>
       Report
-    </a>
+    </div>
   );
   const module =
     props.type === 'question' ? (
@@ -76,7 +78,7 @@ const Helpful = (props) => {
       </div>
       <div>{count}</div>
       <div>|</div>
-      <div>{module}</div>
+      {module}
     </div>
   );
 };

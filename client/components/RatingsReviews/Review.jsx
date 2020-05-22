@@ -27,7 +27,7 @@ const Review = ({ review }) => {
       <p>{review.body}</p>
       <div>{recommended}</div>
       {response}
-      <div>
+      <div className='reviewsBtnRow'>
         <Helpful
           count={review.helpfulness}
           type={'reviews'}

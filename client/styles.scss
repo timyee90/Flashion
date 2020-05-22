@@ -327,6 +327,11 @@
   align-items: center;
 }
 
+.QAPhotos {
+  @include inline-items;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .QAHeader {
   @include inline-items;
   margin-bottom: 10px;
@@ -355,6 +360,7 @@ input:focus {
   justify-content: center;
   width: 100%;
   padding: 10px;
+  min-height: 700px;
 }
 
 .RRSection {
@@ -470,12 +476,11 @@ input[type='radio'] {
 }
 
 .gauge-arrow {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid black;
 }
 
 .characteristics-bar {

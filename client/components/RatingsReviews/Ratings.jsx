@@ -13,6 +13,8 @@ const Ratings = (props) => {
   useEffect(() => {
     if (props.ratingsFilter.length > 0) {
       toggleClearFilterBtn(true);
+    } else {
+      toggleClearFilterBtn(false);
     }
   }, [props.ratingsFilter]);
 
@@ -51,6 +53,7 @@ const Ratings = (props) => {
         changeRatingFilter={changeRatingFilter}
         percentage={ratingPercentage}
         count={count}
+        filters={props.ratingsFilter}
       />
     );
   });
@@ -58,6 +61,18 @@ const Ratings = (props) => {
   const recommendedPerc = props.recommendedPercentage
     ? props.recommendedPercentage.toFixed(1)
     : 0;
+  const barRatingGauges = Object.keys(props.characteristics).map(
+    (characteristic) => {
+      return (
+        <div>
+          <BarRatingGauge
+            category={characteristic}
+            value={props.characteristics[characteristic].value}
+          />
+        </div>
+      );
+    }
+  );
   return (
     <div>
       <div className='ratingDisplay'>
@@ -71,16 +86,7 @@ const Ratings = (props) => {
         <tbody>{starRows}</tbody>
       </table>
       {clearFilterBtn}
-      <BarRatingGauge category='Fit' value={characteristics.Fit.value} />
-      <BarRatingGauge category='Length' value={characteristics.Length.value} />
-      <BarRatingGauge
-        category='Comfort'
-        value={characteristics.Comfort.value}
-      />
-      <BarRatingGauge
-        category='Quality'
-        value={characteristics.Quality.value}
-      />
+      {barRatingGauges}
     </div>
   );
 };

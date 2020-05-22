@@ -87,7 +87,7 @@ const AddReviewModal = (props) => {
     }
     if (
       reviewInfo.email.length === 0 ||
-      !EmailValidator.validate(review.email)
+      !EmailValidator.validate(reviewInfo.email)
     ) {
       setWarning((warnings) => {
         return {

@@ -8,10 +8,10 @@ const BarRatingGauge = (props) => {
     backgroundColor: '#f0f0f0',
   };
   const value = props.value ? `${(props.value / 5) * 100}%` : '0%';
-  console.log(value);
   const arrowPos = {
-    position: 'absolute',
-    left: '63%',
+    position: 'relative',
+    left: value,
+    margin: 0,
   };
   const labelTags = {
     Size: ['Too small', 'Perfect', 'Too Large'],
@@ -26,11 +26,11 @@ const BarRatingGauge = (props) => {
   return (
     <div className='characteristics-bar'>
       <div className='bold'>{props.category}</div>
-      <div className='bar-gauge-labels flex-row'>{labels}</div>
-      <div style={arrowPos} className='arrow-pos'></div>
+
       <div style={gaugeStyle} className='bar-gauge'>
-        <div className='gauge-arrow'></div>
+        <div className='gauge-arrow' style={arrowPos}></div>
       </div>
+      <div className='bar-gauge-labels flex-row'>{labels}</div>
     </div>
   );
 };
