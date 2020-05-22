@@ -329,6 +329,7 @@
 #modal {
   border-collapse: collapse;
   width: 100%;
+  border: 1px solid;
 }
 
 #modal thead {
@@ -341,6 +342,10 @@
 
 #modal tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+#modal tr {
+  border: 1px solid black;
 }
 
 // ratings, reviews, Q&A
