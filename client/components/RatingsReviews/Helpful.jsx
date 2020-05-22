@@ -14,6 +14,7 @@ const Helpful = (props) => {
   const anchorStyle = {
     cursor: 'pointer',
     textDecorationLine: 'underLine',
+    color: 'black',
   };
   const count =
     props.count > 0
