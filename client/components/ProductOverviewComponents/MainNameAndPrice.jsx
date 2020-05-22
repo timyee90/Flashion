@@ -10,23 +10,29 @@ const MainNameAndPrice = (props) => {
       <span className='NameAndSocial'>
         <h1 style={{ marginTop: '16px', marginBottom: '18px' }}>
           {props.name}
-          <img
-            src={FBLogo}
-            style={{
-              width: '25px',
-              height: '25px',
-              marginLeft: '10px',
-              marginRight: '10px',
-            }}
-          />
-          <img
-            src={Twitter}
-            style={{ width: '25px', height: '25px', marginRight: '8px' }}
-          />
-          <img
-            src={Pinterest}
-            style={{ width: '31px', height: '31px', marginTop: '1px' }}
-          />
+          <a href='https://www.facebook.com/'>
+            <img
+              src={FBLogo}
+              style={{
+                width: '25px',
+                height: '25px',
+                marginLeft: '10px',
+                marginRight: '10px',
+              }}
+            />
+          </a>
+          <a href='https://www.twitter.com/'>
+            <img
+              src={Twitter}
+              style={{ width: '25px', height: '25px', marginRight: '8px' }}
+            />
+          </a>
+          <a href='https://www.pinterest.com/'>
+            <img
+              src={Pinterest}
+              style={{ width: '31px', height: '31px', marginTop: '1px' }}
+            />
+          </a>
         </h1>
       </span>
       {props.salePrice > 0 ? (
