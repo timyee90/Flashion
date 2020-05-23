@@ -1,3 +1,4 @@
+// ulility function for creating a comparison matrix
 export const compareProducts = (current, related) => {
   const comparisonTable = [];
   let currentFeatures = current.map((item) => item.value);

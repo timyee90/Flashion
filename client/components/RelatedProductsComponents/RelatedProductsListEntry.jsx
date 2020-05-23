@@ -9,20 +9,19 @@ const RelatedProductsListEntry = ({
   style,
   rating,
   setProductId,
-  currentId,
   currentProd,
 }) => {
   const [displayModal, toggleModal] = useState('modal-hide-rel-prod');
 
-  let url = style.results[0].photos[0].thumbnail_url;
-  let averageRating = Number(computeAverageRating(rating.results));
+  const url = style.results[0].photos[0].thumbnail_url;
+  const averageRating = Number(computeAverageRating(rating.results));
 
-  let comparisonResults = compareProducts(
+  const comparisonResults = compareProducts(
     currentProd.features,
     product.features
   );
 
-  let productComparisonData = (
+  const productComparisonData = (
     <div>
       <table id='modal'>
         <thead>
@@ -61,7 +60,7 @@ const RelatedProductsListEntry = ({
     toggleModal('modal-hide-rel-prod');
   };
 
-  let star =
+  const star =
     averageRating > 0 ? (
       <StarRatingModule
         rating={averageRating}

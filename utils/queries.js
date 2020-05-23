@@ -3,7 +3,7 @@ import axios from 'axios';
 //<-------------------Query Constants--------------------->
 
 const baseUrl = 'http://18.224.200.47';
-const handleError = (err) => console.log('ERROR: ', err);
+const handleError = (err) => console.log('Error in handling request: ', err);
 
 // <-------------------------------------------Cart Queries---------------------------------------------->
 
@@ -71,7 +71,7 @@ export const getRelatedProducts = (product_id) => {
 
 // nested API call for related products component
 export const getRelatedProductMeta = (productId) => {
-  let results = getRelatedProducts(productId).then((relatedProductArray) => {
+  const results = getRelatedProducts(productId).then((relatedProductArray) => {
     return [...new Set(relatedProductArray)]
       .filter((prod) => prod !== productId && prod !== 10)
       .map((relatedProduct) => {

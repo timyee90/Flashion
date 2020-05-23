@@ -245,14 +245,21 @@
 
 // related products
 
-.carousel-container {
+@mixin flex-center {
   display: flex;
   justify-content: center;
 }
 
+.carousel-container {
+  // display: flex;
+  // justify-content: center;
+  @include flex-center;
+}
+
 .related {
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
+  @include flex-center;
 }
 
 .arrow {
@@ -304,8 +311,9 @@
 }
 
 .outfit {
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
+  @include flex-center;
 }
 
 .btn-outfit {
