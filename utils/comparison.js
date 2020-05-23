@@ -1,7 +1,8 @@
 export const compareProducts = (current, related) => {
+  const comparisonTable = [];
   let currentFeatures = current.map((item) => item.value);
   let relatedFeatures = related.map((item) => item.value);
-  let allFeatures = [
+  const allFeatures = [
     ...new Set(currentFeatures.concat(relatedFeatures)),
   ].filter((item) => item !== 'null');
 
@@ -12,32 +13,20 @@ export const compareProducts = (current, related) => {
     return relatedFeatures.includes(item);
   });
 
-  // transpose the features into rows
-  let comparisonTable = [];
-  let idx = 0;
+  // transposes the columns(features) into rows
+  let appendToTable = (features) => {
+    let idx = 0;
 
-  // iterate over current features
-  for (const value of currentFeatures) {
-    if (comparisonTable[idx] === undefined) {
-      comparisonTable.push([]);
+    for (const value of features) {
+      if (comparisonTable[idx] === undefined) {
+        comparisonTable.push([]);
+      }
+      comparisonTable[idx++].push(value);
     }
-    comparisonTable[idx].push(value);
-    idx++;
-  }
-
-  // iterate over all features
-  idx = 0;
-  for (const value of allFeatures) {
-    comparisonTable[idx].push(value);
-    idx++;
-  }
-
-  // iterate over related features
-  idx = 0;
-  for (const value of relatedFeatures) {
-    comparisonTable[idx].push(value);
-    idx++;
-  }
+  };
+  appendToTable(currentFeatures);
+  appendToTable(allFeatures);
+  appendToTable(relatedFeatures);
 
   return comparisonTable;
 };

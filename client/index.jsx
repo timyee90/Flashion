@@ -16,7 +16,7 @@ ReactDOM.render(
           <App />
         </Provider>
       </Route>
-      <Redirect from='/' to='/product/1' />
+      <Redirect from='*' to='/product/1' />
     </Switch>
   </HashRouter>,
   mountNode
