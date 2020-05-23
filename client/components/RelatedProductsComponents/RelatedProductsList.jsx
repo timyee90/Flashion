@@ -5,6 +5,7 @@ const RelatedProductsList = (props) => {
   useEffect(() => {
     props.getRelatedProductIds(props.product_id);
     props.getCurrentProductInfo(props.product_id);
+    setRange([0, 4]);
   }, [props.product_id]);
 
   const productLength = props.relatedProducts.relatedProducts.length;
