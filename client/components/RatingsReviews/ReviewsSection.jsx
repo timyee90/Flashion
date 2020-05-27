@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
 import Review from './Review.jsx';
 import AddReviewModal from './AddReviewModal.jsx';
-import StarRatingModule from 'react-star-ratings';
 
 const ReviewsSection = (props) => {
   const [moreReviews, loadMoreReviews] = useState(false);

@@ -4,7 +4,6 @@ import StarRating from './StarRating.jsx';
 import Helpful from './Helpful.jsx';
 
 const Review = ({ review }) => {
-  // the following below will need to be revised for styling
   const recommended =
     review.recommend > 0 ? <p>&#10004; I recommend this product</p> : '';
   const response = review.response ? (
