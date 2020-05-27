@@ -10,10 +10,10 @@ const OutfitListEntry = ({
   setProductId,
   remove,
 }) => {
-  let url = style.results[0].photos[0].thumbnail_url;
-  let averageRating = Number(computeAverageRating(rating.results));
+  const url = style.results[0].photos[0].thumbnail_url;
+  const averageRating = Number(computeAverageRating(rating.results));
 
-  let star =
+  const star =
     averageRating > 0 ? (
       <StarRatingModule
         rating={averageRating}
