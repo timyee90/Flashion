@@ -1,22 +1,43 @@
-# project-greenfield
+# ez-commerce
 
-Setup Instructions:
+Widgets
+1. Product Overview
+2. Related Products
+3. Questions & Answers
+4. Reviews
 
-## Install dependencies
+### Related Products
 
-- terminal command: "npm install"
+<figure>
+    <iframe src="https://giphy.com/embed/W4RiLRjziOnKQI4nJp" frameBorder="0" class="giphy-embed" allowFullScreen="true"> </iframe>
+                                                                                                                                       </figure>                                                                                                                         
 
-## Compile Front-End Code
+Features
+1. Photo carousel - left/right nagivation
+2. Product comparison modal
+3. Outfit builder - add/remove from sessionStorage
+4. Click re-routing 
 
-- terminal command: "npm run build-dev"
+Tech Stack
+1. React-Redux
+2. Express
 
-## Start Server and open app in browser
+### Getting started
+ 
+```node
+npm install
+```
 
-- Start Server
-  - terminal command: "npm run start-dev"
-- Open Application
-  - (AFTER COMPILING CODE AND STARTING SERVER) Search in Browser URL "localhost:3000"
+Compile Front-End Code
 
-## Credits
+```node
+npm run build-prod
+```
 
-Made with [createapp.dev](https://createapp.dev/)
+Start Server
+
+```node
+npm run start-dev
+```
+
+Open [localhost:3000](localhost:3000)
