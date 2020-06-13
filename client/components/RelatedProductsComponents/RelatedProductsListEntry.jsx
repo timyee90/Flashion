@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { computeAverageRating } from '../../../utils/computeRatingAverage.js';
 import { compareProducts } from '../../../utils/comparison.js';
 import StarRatingModule from 'react-star-ratings';
@@ -75,24 +75,24 @@ const RelatedProductsListEntry = ({
 
   return (
     <div>
-      <img
-        className='rel-prod-img'
-        src={url}
-        onClick={() => setProductId(id)}
-      ></img>
-      <button
-        onClick={() => {
-          toggleModal('modal-show-rel-prod');
-        }}
-        type='button'
-        className='btn btn-default btn-sm btn-overlap'
-      >
-        <span className='glyphicon glyphicon-star star-btn'></span>
-      </button>
-      <div onClick={() => setProductId(id)}>{product.category}</div>
-      <div onClick={() => setProductId(id)}>{product.name}</div>
-      <div onClick={() => setProductId(id)}>${product.default_price}</div>
-      <div onClick={() => setProductId(id)}>{star}</div>
+      <div>
+        <button
+          onClick={() => {
+            toggleModal('modal-show-rel-prod');
+          }}
+          type='button'
+          className='btn btn-default btn-sm btn-overlap'
+        >
+          <span className='glyphicon glyphicon-star star-btn'></span>
+        </button>
+        <div onClick={() => setProductId(id)}>
+          <img className='rel-prod-img' src={url}></img>
+          <div>{product.category}</div>
+          <div>{product.name}</div>
+          <div>${product.default_price}</div>
+          <div>{star}</div>
+        </div>
+      </div>
 
       <aside role='dialog'>
         <div className={displayModal}>

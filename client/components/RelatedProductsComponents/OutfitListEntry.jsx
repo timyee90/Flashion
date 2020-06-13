@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { computeAverageRating } from '../../../utils/computeRatingAverage.js';
 import StarRatingModule from 'react-star-ratings';
 
@@ -28,11 +28,6 @@ const OutfitListEntry = ({
 
   return (
     <div>
-      <img
-        className='rel-prod-img'
-        src={url}
-        onClick={() => setProductId(id)}
-      ></img>
       <button
         onClick={() => {
           remove(id);
@@ -42,10 +37,13 @@ const OutfitListEntry = ({
       >
         <span className='glyphicon glyphicon-remove remove-btn'></span>
       </button>
-      <div onClick={() => setProductId(id)}>{product.category}</div>
-      <div onClick={() => setProductId(id)}>{product.name}</div>
-      <div onClick={() => setProductId(id)}>${product.default_price}</div>
-      <div onClick={() => setProductId(id)}>{star}</div>
+      <div onClick={() => setProductId(id)}>
+        <img className='rel-prod-img' src={url}></img>
+        <div>{product.category}</div>
+        <div>{product.name}</div>
+        <div>${product.default_price}</div>
+        <div>{star}</div>
+      </div>
     </div>
   );
 };

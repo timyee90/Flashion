@@ -291,7 +291,8 @@
 
 .btn-overlap {
   position: absolute;
-  transform: translate(-100%, 0%);
+  transform: translate(690%, 0%);
+  z-index: 2;
 }
 
 .rel-prod-img {
