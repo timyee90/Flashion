@@ -23,20 +23,20 @@ Tech Stack
 
 ### Getting started
  
-```node
-npm install
+```sh
+$ npm install
 ```
 
 Compile Front-End Code
 
-```node
-npm run build-prod
+```sh
+$ npm run build-prod
 ```
 
 Start Server
 
-```node
-npm run start-dev
+```sh
+$ npm run start-dev
 ```
 
 Open [localhost:3000](http://localhost:3000)
