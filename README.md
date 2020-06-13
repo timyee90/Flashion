@@ -8,8 +8,7 @@ Widgets
 
 ### Related Products
 
-<figure>
-    <iframe src="https://giphy.com/embed/W4RiLRjziOnKQI4nJp" frameBorder="0" class="giphy-embed" allowFullScreen="true"> </iframe>
+![alt text](https://media.giphy.com/media/W4RiLRjziOnKQI4nJp/giphy.gif)
                                                                                                                                        </figure>                                                                                                                         
 
 Features
