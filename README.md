@@ -19,7 +19,8 @@ Features
 
 Tech Stack
 1. React-Redux
-2. Express
+2. React Router
+3. Express
 
 ### Getting started
  
