@@ -8,7 +8,7 @@ Widgets
 
 ### Related Products
 
-![alt text](https://media.giphy.com/media/ZCZ5xtQsknZCqUw7Z9/giphy.gif)
+![img](./related_products.gif)
                                                                                                                                                                                                                                                             
                                                                                                                                                                                                                                                             
 Features
