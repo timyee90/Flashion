@@ -12,7 +12,7 @@ Widgets
                                                                                                                                                                                                                                                             
                                                                                                                                                                                                                                                             
 Features
-1. Photo carousel - left/right nagivation
+1. Photo carousel - left/right navigation
 2. Product comparison modal
 3. Outfit builder - add/remove from sessionStorage
 4. Click re-routing 
