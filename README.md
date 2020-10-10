@@ -1,4 +1,4 @@
-# ez-commerce
+# Flashion
 
 Widgets
 1. Product Overview
